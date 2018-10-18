@@ -11,7 +11,7 @@
 
     <style>
         body {
-            font-family: "Raleway", sans-serif
+            font-family: "Poppins", sans-serif
         }
     </style>
 </head>
@@ -20,9 +20,16 @@
 
 <body class="w3-light-grey">
 
-    
+
     <!-- Sidebar/menu -->
-    <nav class="w3-sidebar w3-dark-grey w3-bar-block w3-padding" style="width:250px;font-weight:bold;">
+    <nav class="w3-sidebar w3-dark-grey w3-bar-block w3-padding w3-collapse w3-top" style="width:250px;font-weight:bold;z-index:3;"
+        id="Sidebar">
+
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft w3-hover-light-grey"
+            style="width:100%;font-size:18px">Close Menu</a>
+
+        <br>
+        <br>
 
         <div class="w3-container w3-center">
             <h3><b>R-STEEL</b></h3>
@@ -45,29 +52,144 @@
 
         <br>
 
-        <div class="w3-bar-block w3-large">
-            <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-light-grey">Details</a>
-            <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-light-grey">Layouts</a>
-            <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-light-grey">Loads</a>
-            <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-light-grey">Factors</a>
-            <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-light-grey">Analysis</a>
+        <!-- Left main menu tabs -->
+        <div id="cs_main_left_menu" class="w3-bar-block w3-large">
+            <a id="cs_main_left_menu_details" href="#" class="w3-bar-item w3-button w3-hover-light-grey">Details</a>
+            <a id="cs_main_left_menu_layouts" href="#" class="w3-bar-item w3-button w3-light-grey w3-hover-light-grey">Layouts</a>
+            <a id="cs_main_left_menu_loads" href="#" class="w3-bar-item w3-button w3-hover-light-grey">Loads</a>
+            <a id="cs_main_left_menu_factors" href="#" class="w3-bar-item w3-button w3-hover-light-grey">Factors</a>
+            <a id="cs_main_left_menu_analysis" href="#" class="w3-bar-item w3-button w3-hover-light-grey">Analysis</a>
         </div>
     </nav>
 
-    <!-- Top -->
+
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-hide-large w3-light-grey w3-xlarge w3-padding">
+        <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+
+
+    <!-- Top right -->
     <div class="w3-bar w3-light-grey w3-large">
-            <a class="w3-bar-item">R-STEEL DESIGN</a>
-            <a href="#" class="w3-bar-item w3-button w3-blue w3-right"><i class="fa fa-home w3-xlarge"></i></a>
-            <a class="w3-bar-item w3-right"><i class="fa fa-user-circle-o w3-xlarge"></i> User Name</a>
+        <a class="w3-bar-item">R-STEEL DESIGN</a>
+        <a href="#" class="w3-bar-item w3-button w3-blue w3-right"><i class="fa fa-home w3-xlarge"></i></a>
+        <a class="w3-bar-item w3-right"><i class="fa fa-user-circle-o w3-xlarge"></i> User Name</a>
+    </div>
+
+
+    <!-- Page content -->
+    <div class="w3-main" style="margin-left:340px;max-width:1000px;margin-right:40px">
+
+
+
+        <!-- Header -->
+        <div class="w3-container" style="margin-top:25px;">
+            <h1 class="w3-text-dark-grey"><b>Column connection layout</b></h1>
+        </div>
+
+        <!-- JSXGRAPH and THREEJS VIEWS -->
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-container w3-half">
+                <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
+                    <h4>Column Section View</h4>
+                </div>
+                <div class="w3-container w3-white">
+                    <p>A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
+                        term
+                        specify that cars are designed to run primarily on roads. (Wikipedia)
+                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
+                        term
+                        specify that cars are designed to run primarily on roads. (Wikipedia)
+                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
+                        term
+                        specify that cars are designed to run primarily on roads. (Wikipedia)</p>
+                </div>
+                <div class="w3-bar w3-white">
+                    <a href="#" class="w3-bar-item w3-button w3-blue w3-right"><i class="fa fa-refresh w3-xlarge"></i></a>
+                </div>
+            </div>
+            <div class="w3-container w3-half">
+                <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
+                    <h4>3D Connection View</h4>
+                </div>
+                <div class="w3-container w3-white">
+                    <p>A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
+                        term
+                        specify that cars are designed to run primarily on roads. (Wikipedia)
+                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
+                        term
+                        specify that cars are designed to run primarily on roads. (Wikipedia)
+                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
+                        term
+                        specify that cars are designed to run primarily on roads. (Wikipedia)</p>
+                </div>
+                <div class="w3-bar w3-white">
+                    <a href="#" class="w3-bar-item w3-button w3-blue w3-right"><i class="fa fa-refresh w3-xlarge"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- JSXGRAPH and THREEJS VIEWS -->
+
+        <div class="w3-container w3-margin-top w3-white w3-text-dark-grey">
+            <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
+                <h4>Column dimensions and shoe arrangement</h4>
+            </div>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-col m2">
+                    <div class="w3-row-padding">
+                        <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:61px">
+                        <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:61px">
+                    </div>
+                </div>
+                <div class="w3-col m2">
+                    <label><i class="fa fa-arrows-h"></i> Width B (mm)</label>
+                    <input class="w3-input w3-border" type="text">
+                </div>
+                <div class="w3-col m2">
+                    <label><i class="fa fa-arrows-v"></i> Height H (mm)</label>
+                    <input class="w3-input w3-border" type="text">
+                </div>
+                <div class="w3-col m2">
+                    <label><i class="fa fa-chain-broken"></i> Material</label>
+                    <select class="w3-select w3-border" name="option">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
 
 
+    </div>
 
 
 
 
 
+
+
+    <script>
+
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("Sidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        };
+
+        function w3_close() {
+            document.getElementById("Sidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        };
+
+    </script>
 
 </body>
 
