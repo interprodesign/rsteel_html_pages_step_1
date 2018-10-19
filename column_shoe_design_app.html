@@ -12,7 +12,8 @@
     <style>
         body {
             font-family: "Poppins", sans-serif
-        }
+        };
+        
     </style>
 </head>
 
@@ -30,9 +31,11 @@
         <br>
         <br>
 
-        <div class="w3-container w3-center">
-            <h3><b>R-STEEL</b></h3>
-            Column Show Design
+        <div>
+            <!-- <h3><b>R-STEEL</b></h3>
+            Column Show Design -->
+            <img src="column_shoe_logo.png" style="width:200px">
+
         </div>
 
         <br>
@@ -146,112 +149,125 @@
             </div>
         </div>
 
+        
+
         <div class="w3-row w3-margin-top">
             <div class="w3-container">
                 <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
                     <h4>Section and Shoe Arrangement</h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <!-- ROW 1 -->
-                    <div class="w3-row w3-margin-top">
-                        <div class="w3-col w3-center" style="width:17%">
-                            <div class="w3-row-padding">
-                                <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:61px">
-                                <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:61px">
-                            </div>
-                        </div>
-                        <div class="w3-col" style="width:15%">
-                            <label><i class="fa fa-arrows-h"></i> Width B (mm)</label>
-                            <input class="w3-input w3-border" type="text">
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <label><i class="fa fa-arrows-v"></i> Height H (mm)</label>
-                            <input class="w3-input w3-border" type="text">
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <label><i class="fa fa-chain-broken"></i> Material</label>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <label><i class="fa fa-shirtsinbulk"></i> Shoe type</label>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <label><i class="fa fa-minus"></i> Anchor type</label>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                        </div>
-                    </div>
                     <!-- ROW 2 -->
                     <div class="w3-row w3-margin-top">
-                        <div class="w3-col w3-center" style="width:17%">
+                        
+                        <div class="w3-col w3-margin-left" style="width:15%">
                             <div class="w3-bar-block">
-                                <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:125px">
+                                <label><i class="fa fa-cube"></i> Column Sec.</label>
+                                <select id="cs_sect_type" class="w3-select w3-border" name="option">
+                                    <option value="rect">Rectangle</option>
+                                    <option value="round">Circle</option>
+                                </select>     
                             </div>
+                            <div class=" w3-margin-top">
+                                <img src="cs_select_rect.png" style="width:130px">
+                            </div>
+                        </div> 
+
+                        <div class="w3-col w3-margin-left" style="width:15%">
                             <div class="w3-bar-block">
-                                <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:125px">
+                                <label><i class="fa fa-chain-broken"></i> Concrete</label>
+                                <select id="cs_concrete_type" class="w3-select w3-border" name="option">
+                                    <option value="20">C20/25</option>
+                                    <option value="25">C25/30</option>
+                                    <option value="30">C30/37</option>
+                                    <option value="35">C35/45</option>
+                                    <option value="40">C40/50</option>
+                                    <option value="45">C45/55</option>
+                                    <option value="50">C50/60</option>
+                                </select>
+                                <div>
+                                    <label><i class="fa fa-arrows-h w3-margin-top"></i> Width B (mm)</label>
+                                    <input id="cs_rect_b" class="w3-input w3-border" type="text">
+                                    <label><i class="fa fa-arrows-v w3-margin-top"></i> Height H (mm)</label>
+                                    <input id="cs_rect_h" class="w3-input w3-border" type="text">
+                                </div>
                             </div>
                         </div>
+
+                        <div class="w3-col w3-margin-left" style="width:15%">
+                            <div class="w3-bar-block">
+                                <label><i class="fa fa-shirtsinbulk"></i> Shoe type</label>
+                                <select id="cs_shoe_type" class="w3-select w3-border" name="option">
+                                    <option value="RPK-N2 Shoe">RPK-N2 Shoe</option>
+                                    <option value="RPK-E2 Shoe">RPK-E2 Shoe</option>
+                                </select>
+                                
+                                <label><i class="fa fa-minus w3-margin-top"></i> Base Bolt</label>
+                                <select id="cs_bolt_type" class="w3-select w3-border" name="option">
+                                    <option value="RPP-P">RPP-P</option>
+                                    <option value="RPP-L">RPP-L</option>
+                                    <option value="RPP-E-P">RPP-E-P</option>
+                                    <option value="RPP-E-L">RPP-E-L</option>
+                                </select>
+                                
+                                <label><i class="fa fa-circle w3-margin-top"></i> Bolt Dim.</label>
+                                <select id="cs_bolt_dim" class="w3-select w3-border" name="option">
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="w3-col w3-center" style="width:15%">
+                            <div class="w3-bar-block">
+                                <img src="cs_rect_shoes_pos.png" style="width:125px">
+                            </div>
+                        </div>
+
+
                         <div class="w3-col" style="width:15%">
                             <div class="w3-bar-block">
                                 <div>
                                     <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label>
-                                    <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
+                                    <input id="cs_shoe_s1" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
                                 </div>
                                 <div>
                                     <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label>
-                                    <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
+                                    <input id="cs_shoe_s2" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
                                 </div>
                                 <div>
                                     <label><i class="fa fa-toggle-down w3-margin-top"></i> Side 3 (num)</label>
-                                    <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
+                                    <input id="cs_shoe_s3" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
                                 </div>
                                 <div>
                                     <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label>
-                                    <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
+                                    <input id="cs_shoe_s4" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
+                                </div>
+
+                                <div>
+                                    <input id="cs_corner_shoe" class="w3-check w3-margin-top" type="checkbox" checked="checked">
+                                    <label>Corner Shoes</label></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="w3-col w3-margin-left w3-center w3-margin-top" style="width:15%">
-                            <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:135px">
-                        </div>
-                        <div class="w3-col w3-margin-left w3-margin-top" style="width:15%">
+
+                        <div class="w3-col w3-margin-left" style="width:15%">
                             <div class="w3-bar-block">
-                                <div>
-                                    <input class="w3-check" type="checkbox" checked="checked">
-                                    <label>Corner shoe 1</label></p>
+
+                                <div style="margin-top:15px" class="w3-center">
+                                    <img src="cs_grouting_t.png" style="width:110px">
                                 </div>
-                                <div>
-                                    <input class="w3-check" type="checkbox" checked="checked">
-                                    <label>Corner shoe 2</label></p>
+
+                                <div style="margin-top:18px;">
+                                    <label><i class="fa fa-arrows-v"></i> Grouting t (mm)</label>
+                                    <input id="cs_grouting_t" class="w3-input w3-border" type="text">
                                 </div>
-                                <div>
-                                    <input class="w3-check" type="checkbox" checked="checked">
-                                    <label>Corner shoe 3 </label></p>
-                                </div>
-                                <div>
-                                    <input class="w3-check" type="checkbox" checked="checked">
-                                    <label>Corner shoe 4</label></p>
-                                </div>
+                                
                             </div>
                         </div>
-                    </div>
-                    <br>
+                    </div>  
                 </div>
             </div>
         </div>
-
 
         <div class="w3-row w3-margin-top">
             <div class="w3-container">
@@ -259,56 +275,89 @@
                     <h4>Section and Shoe Arrangement</h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <!-- ROW 1 -->
-                    <div class="w3-row w3-margin-top">
-                        <div class="w3-col w3-center" style="width:17%">
-                            <div class="w3-row-padding">
-                                <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:61px">
-                                <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:61px">
-                            </div>
-                        </div>
-                        <div class="w3-col" style="width:15%">
-                            <label><i class="fa fa-arrows-h"></i> Diam. D (mm)</label>
-                            <input class="w3-input w3-border" type="text">
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <label><i class="fa fa-chain-broken"></i> Material</label>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <label><i class="fa fa-shirtsinbulk"></i> Shoe type</label>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <label><i class="fa fa-minus"></i> Anchor type</label>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                        </div>
-                    </div>
                     <!-- ROW 2 -->
                     <div class="w3-row w3-margin-top">
-                        <div class="w3-col w3-center" style="width:17%">
+        
+                        <div class="w3-col w3-margin-left" style="width:15%">
                             <div class="w3-bar-block">
-                                <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:125px">
+                                <label><i class="fa fa-cube"></i> Column Sec.</label>
+                                <select id="cs_sect_type" class="w3-select w3-border" name="option">
+                                    <option value="rect">Rectangle</option>
+                                    <option value="round">Circle</option>
+                                </select>
+                            </div>
+                            <div class="w3-margin-top">
+                                <img src="cs_select_round.png" style="width:135px">
                             </div>
                         </div>
-                        <div class="w3-col" style="width:15%">
+        
+                        <div class="w3-col w3-margin-left" style="width:15%">
                             <div class="w3-bar-block">
+                                <label><i class="fa fa-chain-broken"></i> Concrete</label>
+                                <select id="cs_concrete_type" class="w3-select w3-border" name="option">
+                                    <option value="20">C20/25</option>
+                                    <option value="25">C25/30</option>
+                                    <option value="30">C30/37</option>
+                                    <option value="35">C35/45</option>
+                                    <option value="40">C40/50</option>
+                                    <option value="45">C45/55</option>
+                                    <option value="50">C50/60</option>
+                                </select>
                                 <div>
+                                    <label><i class="fa fa-arrows-h w3-margin-top"></i> Diam. D (mm)</label>
+                                    <input id="cs_diam_D" class="w3-input w3-border" type="text">
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="w3-col w3-margin-left" style="width:15%">
+                            <div class="w3-bar-block">
+                                <label><i class="fa fa-shirtsinbulk"></i> Shoe type</label>
+                                <select id="cs_shoe_type" class="w3-select w3-border" name="option">
+                                    <option value="RPK-N2 Shoe">RPK-N2 Shoe</option>
+                                    <option value="RPK-E2 Shoe">RPK-E2 Shoe</option>
+                                </select>
+        
+                                <label><i class="fa fa-minus w3-margin-top"></i> Base Bolt</label>
+                                <select id="cs_bolt_type" class="w3-select w3-border" name="option">
+                                    <option value="RPP-P">RPP-P</option>
+                                    <option value="RPP-L">RPP-L</option>
+                                    <option value="RPP-E-P">RPP-E-P</option>
+                                    <option value="RPP-E-L">RPP-E-L</option>
+                                </select>
+                                <div style="margin-top:17px;">
+                                    <label><i class="fa fa-circle"></i> Bolt Dim.</label>
+                                    <select id="cs_bolt_dim" class="w3-select w3-border" name="option">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="w3-col w3-margin-left" style="width:15%">
+                            <div class="w3-bar-block">
+                                <div class="w3-center">
+                                    <img src="cs_round_shoes_pos.png" style="width:120px">
+                                </div>
+                                <div style="margin-top:29px;">
                                     <label><i class="fa fa-life-bouy"></i> Number</label>
                                     <input class="w3-input w3-border" type="number" value="4" name="Adults" min="0" max="10">
                                 </div>
+
+                            </div>
+                        </div>
+        
+                        <div class="w3-col w3-margin-left" style="width:15%">
+                            <div class="w3-bar-block">
+        
+                                <div style="margin-top:4px;" class="w3-center">
+                                    <img src="cs_grouting_t.png" style="width:110px">
+                                </div>
+        
+                                <div style="margin-top:30px;">
+                                    <label><i class="fa fa-window-minimize"></i> Grouting t (mm)</label>
+                                    <input id="cs_grouting_t" class="w3-input w3-border" type="text">
+                                </div>
+        
                             </div>
                         </div>
                     </div>
@@ -316,6 +365,9 @@
                 </div>
             </div>
         </div>
+
+
+        
 
         <div class="w3-row w3-margin-top">
             <div class="w3-container">
@@ -336,12 +388,9 @@
 
                     <div id="layer_1" class="w3-container city" style="display:block">
                         <div class="w3-row w3-margin-top">
-                            <div class="w3-col" style="width:15%;margin-left:7px">
+                            <div class="w3-col" style="width:15%;">
                                 <div class="w3-bar-block">
-                                    <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:125px">
-                                </div>
-                                <div class="w3-bar-block">
-                                    <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:125px">
+                                    <img src="cs_rect_reb_layer_1.png" style="width:140px">
                                 </div>
                             </div>
                             <div class="w3-col" style="width:16%">
@@ -420,45 +469,53 @@
                                 </div>
                             </div>
 
-                            <div class="w3-col w3-margin-left" style="width:10%">
+                            <div class="w3-col w3-margin-left" style="width:8%">
                                 <div class="w3-bar-block">
                                     <div style="margin-top: 25px">
                                         <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start Bar</label></p>
+                                        <label>Start</label></p>
                                     </div>
                                     <div style="margin-top: 45px">
                                         <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start Bar</label></p>
+                                        <label>Start</label></p>
                                     </div>
                                     <div style="margin-top: 45px">
                                         <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start Bar</label></p>
+                                        <label>Start</label></p>
                                     </div>
                                     <div style="margin-top: 45px">
                                         <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start Bar</label></p>
+                                        <label>Start</label></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-col" style="width:8%">
+                                <div class="w3-bar-block">
+                                    <div style="margin-top: 25px">
+                                        <input class="w3-check" type="checkbox" checked="checked">
+                                        <label>End</label></p>
+                                    </div>
+                                    <div style="margin-top: 45px">
+                                        <input class="w3-check" type="checkbox" checked="checked">
+                                        <label>End</label></p>
+                                    </div>
+                                    <div style="margin-top: 45px">
+                                        <input class="w3-check" type="checkbox" checked="checked">
+                                        <label>End</label></p>
+                                    </div>
+                                    <div style="margin-top: 45px">
+                                        <input class="w3-check" type="checkbox" checked="checked">
+                                        <label>End</label></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="w3-col" style="width:15%">
-                                <div class="w3-bar-block">
-                                    <div style="margin-top: 25px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End Bar</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End Bar</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End Bar</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End Bar</label></p>
-                                    </div>
-                                </div>
+                                <label><i class="fa fa-chain-broken"></i> Steel</label>
+                                <select class="w3-select w3-border" name="option">
+                                    <option value="400">Class A400</option>
+                                    <option value="500">Class B500</option>
+                                    <option value="600">Class C600</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -466,12 +523,9 @@
                     <div id="layer_2" class="w3-container city" style="display:none">
                         <!-- ROW 2 -->
                         <div class="w3-row w3-margin-top">
-                            <div class="w3-col" style="width:15%;margin-left:7px">
+                            <div class="w3-col" style="width:15%">
                                 <div class="w3-bar-block">
-                                    <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:125px">
-                                </div>
-                                <div class="w3-bar-block">
-                                    <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:125px">
+                                    <img src="cs_rect_reb_layer_2.png" style="width:140px">
                                 </div>
                             </div>
                             <div class="w3-col" style="width:16%">
@@ -501,23 +555,19 @@
                                 <div class="w3-bar-block">
                                     <div>
                                         <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0"
-                                            max="5">
+                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
                                     </div>
                                     <div>
                                         <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0"
-                                            max="5">
+                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
                                     </div>
                                     <div>
                                         <label><i class="fa fa-toggle-down w3-margin-top"></i> Side 3 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0"
-                                            max="5">
+                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
                                     </div>
                                     <div>
                                         <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0"
-                                            max="5">
+                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
                                     </div>
                                 </div>
                             </div>
@@ -549,46 +599,54 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="w3-col w3-margin-left" style="width:10%">
+                        
+                            <div class="w3-col w3-margin-left" style="width:8%">
                                 <div class="w3-bar-block">
                                     <div style="margin-top: 25px">
                                         <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start Bar</label></p>
+                                        <label>Start</label></p>
                                     </div>
                                     <div style="margin-top: 45px">
                                         <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start Bar</label></p>
+                                        <label>Start</label></p>
                                     </div>
                                     <div style="margin-top: 45px">
                                         <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start Bar</label></p>
+                                        <label>Start</label></p>
                                     </div>
                                     <div style="margin-top: 45px">
                                         <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start Bar</label></p>
+                                        <label>Start</label></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-col" style="width:8%">
+                                <div class="w3-bar-block">
+                                    <div style="margin-top: 25px">
+                                        <input class="w3-check" type="checkbox" checked="checked">
+                                        <label>End</label></p>
+                                    </div>
+                                    <div style="margin-top: 45px">
+                                        <input class="w3-check" type="checkbox" checked="checked">
+                                        <label>End</label></p>
+                                    </div>
+                                    <div style="margin-top: 45px">
+                                        <input class="w3-check" type="checkbox" checked="checked">
+                                        <label>End</label></p>
+                                    </div>
+                                    <div style="margin-top: 45px">
+                                        <input class="w3-check" type="checkbox" checked="checked">
+                                        <label>End</label></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="w3-col" style="width:15%">
-                                <div class="w3-bar-block">
-                                    <div style="margin-top: 25px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End Bar</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End Bar</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End Bar</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End Bar</label></p>
-                                    </div>
-                                </div>
+                                <label><i class="fa fa-chain-broken"></i> Steel</label>
+                                <select class="w3-select w3-border" name="option">
+                                    <option value="400">Class A400</option>
+                                    <option value="500">Class B500</option>
+                                    <option value="600">Class C600</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -609,7 +667,7 @@
                     <div class="w3-row w3-margin-top">
                         <div class="w3-col" style="width:15%;margin-left:7px">
                             <div class="w3-bar-block">
-                                <img src="https://www.w3schools.com/w3images/avatar2.png" style="width:125px">
+                                <img src="cs_round_rebar.png" style="width:125px">
                             </div>
                         </div>
                         <div class="w3-col" style="width:16%">
@@ -670,6 +728,12 @@
 
 
     <script>
+
+        jQuery("#cs_select_sec div").click(function(){
+            jQuery(this).addClass("w3-border");
+        });
+
+
 
         // Script to open and close sidebar -----------------------------------------------------
         function w3_open() {
