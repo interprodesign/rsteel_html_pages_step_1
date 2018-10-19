@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="w3.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="cs_layout.js"></script>
 
     <style>
         body {
@@ -100,7 +101,8 @@
                     <h4>Column Section and Connection 3D View</h4>
                 </div>
                 <div class="w3-container w3-white w3-padding-16 w3-half">
-                    <div class="w3-container">A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
+                    <div class="w3-container">A car is a wheeled, self-powered motor vehicle used for transportation.
+                        Most definitions of the
                         term
                         specify that cars are designed to run primarily on roads. (Wikipedia)
                         A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
@@ -121,7 +123,8 @@
                     </div>
                 </div>
                 <div class="w3-container w3-white w3-padding-16 w3-half">
-                    <div class="w3-container">A car is a wheeled, self-powered motor vehicle used for transportation. Most
+                    <div class="w3-container">A car is a wheeled, self-powered motor vehicle used for transportation.
+                        Most
                         definitions of the
                         term
                         specify that cars are designed to run primarily on roads. (Wikipedia)
@@ -149,7 +152,7 @@
             </div>
         </div>
 
-        
+
 
         <div class="w3-row w3-margin-top">
             <div class="w3-container">
@@ -159,19 +162,19 @@
                 <div class="w3-container w3-white">
                     <!-- ROW 2 -->
                     <div class="w3-row w3-margin-top">
-                        
+
                         <div class="w3-col w3-margin-left" style="width:15%">
                             <div class="w3-bar-block">
                                 <label><i class="fa fa-cube"></i> Column Sec.</label>
                                 <select id="cs_sect_type" class="w3-select w3-border" name="option">
                                     <option value="rect">Rectangle</option>
                                     <option value="round">Circle</option>
-                                </select>     
+                                </select>
                             </div>
-                            <div class=" w3-margin-top">
-                                <img src="cs_select_rect.png" style="width:130px">
+                            <div id="cs_sec_image" class=" w3-margin-top" style="padding-left:10px">
+                                <img src="cs_select_rect.png" style="width:115px">
                             </div>
-                        </div> 
+                        </div>
 
                         <div class="w3-col w3-margin-left" style="width:15%">
                             <div class="w3-bar-block">
@@ -185,7 +188,7 @@
                                     <option value="45">C45/55</option>
                                     <option value="50">C50/60</option>
                                 </select>
-                                <div>
+                                <div id="cs_section_dims">
                                     <label><i class="fa fa-arrows-h w3-margin-top"></i> Width B (mm)</label>
                                     <input id="cs_rect_b" class="w3-input w3-border" type="text">
                                     <label><i class="fa fa-arrows-v w3-margin-top"></i> Height H (mm)</label>
@@ -201,7 +204,7 @@
                                     <option value="RPK-N2 Shoe">RPK-N2 Shoe</option>
                                     <option value="RPK-E2 Shoe">RPK-E2 Shoe</option>
                                 </select>
-                                
+
                                 <label><i class="fa fa-minus w3-margin-top"></i> Base Bolt</label>
                                 <select id="cs_bolt_type" class="w3-select w3-border" name="option">
                                     <option value="RPP-P">RPP-P</option>
@@ -209,165 +212,20 @@
                                     <option value="RPP-E-P">RPP-E-P</option>
                                     <option value="RPP-E-L">RPP-E-L</option>
                                 </select>
-                                
+
                                 <label><i class="fa fa-circle w3-margin-top"></i> Bolt Dim.</label>
                                 <select id="cs_bolt_dim" class="w3-select w3-border" name="option">
                                 </select>
 
                             </div>
                         </div>
-
-                        <div class="w3-col w3-center" style="width:15%">
-                            <div class="w3-bar-block">
-                                <img src="cs_rect_shoes_pos.png" style="width:125px">
-                            </div>
-                        </div>
-
-
-                        <div class="w3-col" style="width:15%">
-                            <div class="w3-bar-block">
-                                <div>
-                                    <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label>
-                                    <input id="cs_shoe_s1" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                </div>
-                                <div>
-                                    <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label>
-                                    <input id="cs_shoe_s2" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                </div>
-                                <div>
-                                    <label><i class="fa fa-toggle-down w3-margin-top"></i> Side 3 (num)</label>
-                                    <input id="cs_shoe_s3" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                </div>
-                                <div>
-                                    <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label>
-                                    <input id="cs_shoe_s4" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                </div>
-
-                                <div>
-                                    <input id="cs_corner_shoe" class="w3-check w3-margin-top" type="checkbox" checked="checked">
-                                    <label>Corner Shoes</label></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <div class="w3-bar-block">
-
-                                <div style="margin-top:15px" class="w3-center">
-                                    <img src="cs_grouting_t.png" style="width:110px">
-                                </div>
-
-                                <div style="margin-top:18px;">
-                                    <label><i class="fa fa-arrows-v"></i> Grouting t (mm)</label>
-                                    <input id="cs_grouting_t" class="w3-input w3-border" type="text">
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-            </div>
-        </div>
-
-        <div class="w3-row w3-margin-top">
-            <div class="w3-container">
-                <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
-                    <h4>Section and Shoe Arrangement</h4>
-                </div>
-                <div class="w3-container w3-white">
-                    <!-- ROW 2 -->
-                    <div class="w3-row w3-margin-top">
-        
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <div class="w3-bar-block">
-                                <label><i class="fa fa-cube"></i> Column Sec.</label>
-                                <select id="cs_sect_type" class="w3-select w3-border" name="option">
-                                    <option value="rect">Rectangle</option>
-                                    <option value="round">Circle</option>
-                                </select>
-                            </div>
-                            <div class="w3-margin-top">
-                                <img src="cs_select_round.png" style="width:135px">
-                            </div>
-                        </div>
-        
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <div class="w3-bar-block">
-                                <label><i class="fa fa-chain-broken"></i> Concrete</label>
-                                <select id="cs_concrete_type" class="w3-select w3-border" name="option">
-                                    <option value="20">C20/25</option>
-                                    <option value="25">C25/30</option>
-                                    <option value="30">C30/37</option>
-                                    <option value="35">C35/45</option>
-                                    <option value="40">C40/50</option>
-                                    <option value="45">C45/55</option>
-                                    <option value="50">C50/60</option>
-                                </select>
-                                <div>
-                                    <label><i class="fa fa-arrows-h w3-margin-top"></i> Diam. D (mm)</label>
-                                    <input id="cs_diam_D" class="w3-input w3-border" type="text">
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <div class="w3-bar-block">
-                                <label><i class="fa fa-shirtsinbulk"></i> Shoe type</label>
-                                <select id="cs_shoe_type" class="w3-select w3-border" name="option">
-                                    <option value="RPK-N2 Shoe">RPK-N2 Shoe</option>
-                                    <option value="RPK-E2 Shoe">RPK-E2 Shoe</option>
-                                </select>
-        
-                                <label><i class="fa fa-minus w3-margin-top"></i> Base Bolt</label>
-                                <select id="cs_bolt_type" class="w3-select w3-border" name="option">
-                                    <option value="RPP-P">RPP-P</option>
-                                    <option value="RPP-L">RPP-L</option>
-                                    <option value="RPP-E-P">RPP-E-P</option>
-                                    <option value="RPP-E-L">RPP-E-L</option>
-                                </select>
-                                <div style="margin-top:17px;">
-                                    <label><i class="fa fa-circle"></i> Bolt Dim.</label>
-                                    <select id="cs_bolt_dim" class="w3-select w3-border" name="option">
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <div class="w3-bar-block">
-                                <div class="w3-center">
-                                    <img src="cs_round_shoes_pos.png" style="width:120px">
-                                </div>
-                                <div style="margin-top:29px;">
-                                    <label><i class="fa fa-life-bouy"></i> Number</label>
-                                    <input class="w3-input w3-border" type="number" value="4" name="Adults" min="0" max="10">
-                                </div>
-
-                            </div>
-                        </div>
-        
-                        <div class="w3-col w3-margin-left" style="width:15%">
-                            <div class="w3-bar-block">
-        
-                                <div style="margin-top:4px;" class="w3-center">
-                                    <img src="cs_grouting_t.png" style="width:110px">
-                                </div>
-        
-                                <div style="margin-top:30px;">
-                                    <label><i class="fa fa-window-minimize"></i> Grouting t (mm)</label>
-                                    <input id="cs_grouting_t" class="w3-input w3-border" type="text">
-                                </div>
-        
-                            </div>
+                        <div id="cs_col_shoes_inputs">
                         </div>
                     </div>
-                    <br>
+                    <div id="add_br"></div>
                 </div>
             </div>
         </div>
-
-
-        
 
         <div class="w3-row w3-margin-top">
             <div class="w3-container">
@@ -375,365 +233,20 @@
                     <h4>Column Section Reinforcement</h4>
                 </div>
                 <div class="w3-container w3-white">
-
-                    <div id="layerTabClick" class="w3-row w3-third">
-                        <a href="javascript:void(0)" onclick="layerTab(event, 'layer_1');">
-                            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-blue ">Layer
-                                1</div>
-                        </a>
-                        <a href="javascript:void(0)" onclick="layerTab(event, 'layer_2');">
-                            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Layer 2</div>
-                        </a>
-                    </div>
-
-                    <div id="layer_1" class="w3-container city" style="display:block">
-                        <div class="w3-row w3-margin-top">
-                            <div class="w3-col" style="width:15%;">
-                                <div class="w3-bar-block">
-                                    <img src="cs_rect_reb_layer_1.png" style="width:140px">
-                                </div>
-                            </div>
-                            <div class="w3-col" style="width:16%">
-                                <div class="w3-bar-block">
-                                    <div>
-                                        <label><i class="fa fa-window-maximize"></i> Cover 1 (mm)</label>
-                                        <input class="w3-input w3-border" type="text">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-window-maximize fa-rotate-90 w3-margin-top"></i> Cover 2
-                                            (mm)</label>
-                                        <input class="w3-input w3-border" type="text">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-window-maximize fa-rotate-180 w3-margin-top"></i> Cover
-                                            3 (mm)</label>
-                                        <input class="w3-input w3-border" type="text">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-window-maximize fa-rotate-270 w3-margin-top"></i> Cover
-                                            4 (mm)</label>
-                                        <input class="w3-input w3-border" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w3-col w3-margin-left" style="width:16%">
-                                <div class="w3-bar-block">
-                                    <div>
-                                        <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0"
-                                            max="5">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0"
-                                            max="5">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-toggle-down w3-margin-top"></i> Side 3 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0"
-                                            max="5">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0"
-                                            max="5">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w3-col w3-margin-left" style="width:16%">
-                                <div class="w3-bar-block">
-                                    <label><i class="fa fa-circle"></i> Rebar Diam.</label>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                    <label><i class="fa fa-circle" style="margin-top: 18px"></i> Rebar Diam.</label>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                    <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                    <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="w3-col w3-margin-left" style="width:8%">
-                                <div class="w3-bar-block">
-                                    <div style="margin-top: 25px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start</label></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w3-col" style="width:8%">
-                                <div class="w3-bar-block">
-                                    <div style="margin-top: 25px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End</label></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w3-col" style="width:15%">
-                                <label><i class="fa fa-chain-broken"></i> Steel</label>
-                                <select class="w3-select w3-border" name="option">
-                                    <option value="400">Class A400</option>
-                                    <option value="500">Class B500</option>
-                                    <option value="600">Class C600</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="layer_2" class="w3-container city" style="display:none">
-                        <!-- ROW 2 -->
-                        <div class="w3-row w3-margin-top">
-                            <div class="w3-col" style="width:15%">
-                                <div class="w3-bar-block">
-                                    <img src="cs_rect_reb_layer_2.png" style="width:140px">
-                                </div>
-                            </div>
-                            <div class="w3-col" style="width:16%">
-                                <div class="w3-bar-block">
-                                    <div>
-                                        <label><i class="fa fa-window-maximize"></i> Cover 1 (mm)</label>
-                                        <input class="w3-input w3-border" type="text">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-window-maximize fa-rotate-90 w3-margin-top"></i> Cover 2
-                                            (mm)</label>
-                                        <input class="w3-input w3-border" type="text">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-window-maximize fa-rotate-180 w3-margin-top"></i> Cover
-                                            3 (mm)</label>
-                                        <input class="w3-input w3-border" type="text">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-window-maximize fa-rotate-270 w3-margin-top"></i> Cover
-                                            4 (mm)</label>
-                                        <input class="w3-input w3-border" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w3-col w3-margin-left" style="width:16%">
-                                <div class="w3-bar-block">
-                                    <div>
-                                        <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-toggle-down w3-margin-top"></i> Side 3 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                    </div>
-                                    <div>
-                                        <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label>
-                                        <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w3-col w3-margin-left" style="width:16%">
-                                <div class="w3-bar-block">
-                                    <label><i class="fa fa-circle"></i> Rebar Diam.</label>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                    <label><i class="fa fa-circle" style="margin-top: 18px"></i> Rebar Diam.</label>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                    <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                    <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                </div>
-                            </div>
-                        
-                            <div class="w3-col w3-margin-left" style="width:8%">
-                                <div class="w3-bar-block">
-                                    <div style="margin-top: 25px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>Start</label></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w3-col" style="width:8%">
-                                <div class="w3-bar-block">
-                                    <div style="margin-top: 25px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End</label></p>
-                                    </div>
-                                    <div style="margin-top: 45px">
-                                        <input class="w3-check" type="checkbox" checked="checked">
-                                        <label>End</label></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w3-col" style="width:15%">
-                                <label><i class="fa fa-chain-broken"></i> Steel</label>
-                                <select class="w3-select w3-border" name="option">
-                                    <option value="400">Class A400</option>
-                                    <option value="500">Class B500</option>
-                                    <option value="600">Class C600</option>
-                                </select>
-                            </div>
-                        </div>
+                    <div id="cs_sec_rebar_inputs">
                     </div>
                     <br>
                 </div>
             </div>
         </div>
 
-
-
-
-        <div class="w3-row w3-margin-top">
-            <div class="w3-container">
-                <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
-                    <h4>Column Section Reinforcement</h4>
-                </div>
-                <div class="w3-container w3-white">
-                    <div class="w3-row w3-margin-top">
-                        <div class="w3-col" style="width:15%;margin-left:7px">
-                            <div class="w3-bar-block">
-                                <img src="cs_round_rebar.png" style="width:125px">
-                            </div>
-                        </div>
-                        <div class="w3-col" style="width:16%">
-                            <div class="w3-bar-block">
-                                <div>
-                                    <label><i class="fa fa-circle-o"></i> Cover L1 (mm)</label>
-                                    <input class="w3-input w3-border" type="text">
-                                </div>
-                                <div>
-                                    <label><i class="fa fa-circle-o w3-margin-top"></i> Cover L2 (mm)</label>
-                                    <input class="w3-input w3-border" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:16%">
-                            <div class="w3-bar-block">
-                                <div>
-                                    <label><i class="fa fa-dot-circle-o"></i> Layer 1 (num)</label>
-                                    <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                </div>
-                                <div>
-                                    <label><i class="fa fa-dot-circle-o w3-margin-top"></i> Layer 2 (num)</label>
-                                    <input class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w3-col w3-margin-left" style="width:16%">
-                            <div class="w3-bar-block">
-                                <label><i class="fa fa-circle"></i> Rebar Diam.</label>
-                                <select class="w3-select w3-border" name="option">
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                </select>
-                                <label><i class="fa fa-circle" style="margin-top: 18px"></i> Rebar Diam.</label>
-                                <select class="w3-select w3-border" name="option">
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-
-
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
     </div>
 
 
-
-
-
-
-
     <script>
-
-        jQuery("#cs_select_sec div").click(function(){
-            jQuery(this).addClass("w3-border");
-        });
-
-
 
         // Script to open and close sidebar -----------------------------------------------------
         function w3_open() {
@@ -744,7 +257,6 @@
             document.getElementById("Sidebar").style.display = "none";
             document.getElementById("myOverlay").style.display = "none";
         };
-
 
         // Layer Tab event ----------------------------------------------------------------------
         function layerTab(evt, layerNum) {

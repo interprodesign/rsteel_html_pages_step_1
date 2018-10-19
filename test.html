@@ -1,0 +1,206 @@
+<div id="layerTabClick" class="w3-row w3-third"> <a href="javascript:void(0)" onclick="layerTab(event, 'layer_1');">
+        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-blue ">Layer1</div>
+    </a> <a href="javascript:void(0)" onclick="layerTab(event, 'layer_2');">
+        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Layer 2</div>
+    </a> </div>
+
+
+
+<div id="layer_1" class="w3-container city" style="display:block"></div>
+    <div class="w3-row w3-margin-top">
+        <div class="w3-col" style="width:15%;">
+            <div class="w3-bar-block"> <img src="cs_rect_reb_layer_1.png" style="width:140px"> </div>
+        </div>
+        <div class="w3-col" style="width:16%">
+            <div class="w3-bar-block">
+                <div> <label><i class="fa fa-window-maximize"></i> Cover 1 (mm)</label> <input id="cs_rect_cover_1_1" class="w3-input w3-border"
+                        type="text"> </div>
+                <div> <label><i class="fa fa-window-maximize fa-rotate-90 w3-margin-top"></i> Cover 2 (mm)</label> <input
+                        id="cs_rect_cover_2_1" class="w3-input w3-border" type="text"> </div>
+                <div> <label><i class="fa fa-window-maximize fa-rotate-180 w3-margin-top"></i> Cover 3 (mm)</label> <input
+                        id="cs_rect_cover_3_1" class="w3-input w3-border" type="text"> </div>
+                <div> <label><i class="fa fa-window-maximize fa-rotate-270 w3-margin-top"></i> Cover 4 (mm)</label> <input
+                        id="cs_rect_cover_4_1" class="w3-input w3-border" type="text"> </div>
+            </div>
+        </div>
+        <div class="w3-col w3-margin-left" style="width:16%">
+            <div class="w3-bar-block">
+                <div> <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label> <input id="cs_rect_num_1_1" class="w3-input w3-border"
+                        type="number" value="1" name="Adults" min="0" max="5"> </div>
+                <div> <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label> <input id="cs_rect_num_2_1"
+                        class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5"> </div>
+                <div> <label><i class="fa fa-toggle-down w3-margin-top"></i> Side 3 (num)</label> <input id="cs_rect_num_3_1"
+                        class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5"> </div>
+                <div> <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label> <input id="cs_rect_num_4_1"
+                        class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5"> </div>
+            </div>
+        </div>
+        <div class="w3-col w3-margin-left" style="width:16%">
+            <div class="w3-bar-block"> <label><i class="fa fa-circle"></i> Rebar Diam.</label> <select id="cs_rect_diam_1_1"
+                    class="w3-select w3-border" name="option">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select> <label><i class="fa fa-circle" style="margin-top: 18px"></i> Rebar Diam.</label> <select id="cs_rect_diam_2_1"
+                    class="w3-select w3-border" name="option">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select> <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label> <select id="cs_rect_diam_3_1"
+                    class="w3-select w3-border" name="option">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select> <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label> <select id="cs_rect_diam_4_1"
+                    class="w3-select w3-border" name="option">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select> </div>
+        </div>
+        <div class="w3-col w3-margin-left" style="width:8%">
+            <div class="w3-bar-block">
+                <div style="margin-top: 25px"> <input id="cs_rect_start_1_1" class="w3-check" type="checkbox" checked="checked">
+                    <label>Start</label>
+                    <p></p>
+                </div>
+                <div style="margin-top: 45px"> <input id="cs_rect_start_2_1" class="w3-check" type="checkbox" checked="checked">
+                    <label>Start</label>
+                    <p></p>
+                </div>
+                <div style="margin-top: 45px"> <input id="cs_rect_start_3_1" class="w3-check" type="checkbox" checked="checked">
+                    <label>Start</label>
+                    <p></p>
+                </div>
+                <div style="margin-top: 45px"> <input id="cs_rect_start_4_1" class="w3-check" type="checkbox" checked="checked">
+                    <label>Start</label>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="w3-col" style="width:8%">
+            <div class="w3-bar-block">
+                <div style="margin-top: 25px"> <input id="cs_rect_end_1_1" class="w3-check" type="checkbox" checked="checked">
+                    <label>End</label>
+                    <p></p>
+                </div>
+                <div style="margin-top: 45px"> <input id="cs_rect_end_2_1" class="w3-check" type="checkbox" checked="checked">
+                    <label>End</label>
+                    <p></p>
+                </div>
+                <div style="margin-top: 45px"> <input id="cs_rect_end_3_1" class="w3-check" type="checkbox" checked="checked">
+                    <label>End</label>
+                    <p></p>
+                </div>
+                <div style="margin-top: 45px"> <input id="cs_rect_end_4_1" class="w3-check" type="checkbox" checked="checked">
+                    <label>End</label>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="w3-col" style="width:15%"> <label><i class="fa fa-chain-broken"></i> Steel</label> <select id="cs_rect_steel_1"
+                class="w3-select w3-border" name="option">
+                <option value="400">Class A400</option>
+                <option value="500">Class B500</option>
+                <option value="600">Class C600</option>
+            </select> </div>
+    </div>
+<div id="layer_2" class="w3-container city" style="display:none"></div>
+<div class="w3-row w3-margin-top">
+    <div class="w3-col" style="width:15%;">
+        <div class="w3-bar-block"> <img src="cs_rect_reb_layer_2.png" style="width:140px"> </div>
+    </div>
+    <div class="w3-col" style="width:16%">
+        <div class="w3-bar-block">
+            <div> <label><i class="fa fa-window-maximize"></i> Cover 1 (mm)</label> <input id="cs_rect_cover_1_2" class="w3-input w3-border"
+                    type="text"> </div>
+            <div> <label><i class="fa fa-window-maximize fa-rotate-90 w3-margin-top"></i> Cover 2 (mm)</label> <input
+                    id="cs_rect_cover_2_2" class="w3-input w3-border" type="text"> </div>
+            <div> <label><i class="fa fa-window-maximize fa-rotate-180 w3-margin-top"></i> Cover 3 (mm)</label> <input
+                    id="cs_rect_cover_3_2" class="w3-input w3-border" type="text"> </div>
+            <div> <label><i class="fa fa-window-maximize fa-rotate-270 w3-margin-top"></i> Cover 4 (mm)</label> <input
+                    id="cs_rect_cover_4_2" class="w3-input w3-border" type="text"> </div>
+        </div>
+    </div>
+    <div class="w3-col w3-margin-left" style="width:16%">
+        <div class="w3-bar-block">
+            <div> <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label> <input id="cs_rect_num_1_2" class="w3-input w3-border"
+                    type="number" value="1" name="Adults" min="0" max="5"> </div>
+            <div> <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label> <input id="cs_rect_num_2_2"
+                    class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5"> </div>
+            <div> <label><i class="fa fa-toggle-down w3-margin-top"></i> Side 3 (num)</label> <input id="cs_rect_num_3_2"
+                    class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5"> </div>
+            <div> <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label> <input id="cs_rect_num_4_2"
+                    class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5"> </div>
+        </div>
+    </div>
+    <div class="w3-col w3-margin-left" style="width:16%">
+        <div class="w3-bar-block"> <label><i class="fa fa-circle"></i> Rebar Diam.</label> <select id="cs_rect_diam_1_2"
+                class="w3-select w3-border" name="option">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select> <label><i class="fa fa-circle" style="margin-top: 18px"></i> Rebar Diam.</label> <select id="cs_rect_diam_2_2"
+                class="w3-select w3-border" name="option">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select> <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label> <select id="cs_rect_diam_3_2"
+                class="w3-select w3-border" name="option">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select> <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label> <select id="cs_rect_diam_4_2"
+                class="w3-select w3-border" name="option">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select> </div>
+    </div>
+    <div class="w3-col w3-margin-left" style="width:8%">
+        <div class="w3-bar-block">
+            <div style="margin-top: 25px"> <input id="cs_rect_start_1_2" class="w3-check" type="checkbox" checked="checked">
+                <label>Start</label>
+                <p></p>
+            </div>
+            <div style="margin-top: 45px"> <input id="cs_rect_start_2_2" class="w3-check" type="checkbox" checked="checked">
+                <label>Start</label>
+                <p></p>
+            </div>
+            <div style="margin-top: 45px"> <input id="cs_rect_start_3_2" class="w3-check" type="checkbox" checked="checked">
+                <label>Start</label>
+                <p></p>
+            </div>
+            <div style="margin-top: 45px"> <input id="cs_rect_start_4_2" class="w3-check" type="checkbox" checked="checked">
+                <label>Start</label>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="w3-col" style="width:8%">
+        <div class="w3-bar-block">
+            <div style="margin-top: 25px"> <input id="cs_rect_end_1_2" class="w3-check" type="checkbox" checked="checked">
+                <label>End</label>
+                <p></p>
+            </div>
+            <div style="margin-top: 45px"> <input id="cs_rect_end_2_2" class="w3-check" type="checkbox" checked="checked">
+                <label>End</label>
+                <p></p>
+            </div>
+            <div style="margin-top: 45px"> <input id="cs_rect_end_3_2" class="w3-check" type="checkbox" checked="checked">
+                <label>End</label>
+                <p></p>
+            </div>
+            <div style="margin-top: 45px"> <input id="cs_rect_end_4_2" class="w3-check" type="checkbox" checked="checked">
+                <label>End</label>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="w3-col" style="width:15%"> <label><i class="fa fa-chain-broken"></i> Steel</label> <select id="cs_rect_steel_2"
+            class="w3-select w3-border" name="option">
+            <option value="400">Class A400</option>
+            <option value="500">Class B500</option>
+            <option value="600">Class C600</option>
+        </select> </div>
+</div>
