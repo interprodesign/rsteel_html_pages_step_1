@@ -12,17 +12,16 @@
     <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
     <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
 
-    <script src="cs_layout.js"></script>
+    <script type="text/javascript" src="cs_layout.js"></script>
+    <script type="text/javascript" src="cs_layout_jsx.js"></script>
 
     <style>
         body {
             font-family: "Poppins", sans-serif
         };
 
-        .jxgbox {
+        #cs_column_sec_view {
             width:100%;
-            border-color: #7e7e7e;  
-            border-radius: 0px;
         };
         
     </style>
@@ -112,7 +111,7 @@
                 </div>
                 <div class="w3-container w3-white w3-padding-16 w3-half">
                     <div class="w3-container">
-                        <div id="cs_column_sec_view" class="jxgbox"></div>
+                        <div style="border-color: white;" id="cs_column_sec_view" class="jxgbox"></div>
                     </div>
                 </div>
                 <div class="w3-container w3-white w3-padding-16 w3-half">
@@ -194,8 +193,8 @@
                             <div class="w3-bar-block">
                                 <label><i class="fa fa-shirtsinbulk"></i> Shoe type</label>
                                 <select id="cs_shoe_type" class="w3-select w3-border" name="option">
-                                    <option value="RPK-N2 Shoe">RPK-N2 Shoe</option>
-                                    <option value="RPK-E2 Shoe">RPK-E2 Shoe</option>
+                                    <option value="RPK-N2">RPK-N2 Shoe</option>
+                                    <option value="RPK-E2">RPK-E2 Shoe</option>
                                 </select>
 
                                 <label><i class="fa fa-minus w3-margin-top"></i> Base Bolt</label>
