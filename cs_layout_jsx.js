@@ -80,31 +80,31 @@ CS_LAYOUT_JSX = (function () {
                 'P': [0, 0],
                 'D': 45,
                 'shoe': [[20, -50], [-55, -50], [-55, 55], [50, 55], [50, -20]],
-                'cover': [45, 45]
+                'cover': [50, 50]
             },
             'M36': {
                 'P': [0, 0],
                 'D': 55,
                 'shoe': [[23, -60], [-58, -60], [-58, 58], [60, 58], [60, -23]],
-                'cover': [55, 55]
+                'cover': [60, 60]
             },
             'M39': {
                 'P': [0, 0],
                 'D': 55,
                 'shoe': [[23, -60], [-65, -60], [-65, 65], [60, 65], [60, -23]],
-                'cover': [55, 55]
+                'cover': [60, 60]
             },
             'M45': {
                 'P': [0, 0],
                 'D': 65,
                 'shoe': [[23, -60], [-88, -60], [-88, 88], [60, 88], [60, -23]],
-                'cover': [65, 65]
+                'cover': [60, 60]
             },
             'M52': {
                 'P': [0, 0],
                 'D': 70,
                 'shoe': [[23, -60], [-88, -60], [-88, 88], [60, 88], [60, -23]],
-                'cover': [70, 70]
+                'cover': [60, 60]
             },
         }
     };
@@ -121,6 +121,14 @@ CS_LAYOUT_JSX = (function () {
             axis: false,
             grid: false,
         });
+
+        var shoe_type = jQuery("#cs_shoe_type").val();
+        var bolt_dim = jQuery("#cs_bolt_dim").val();
+
+        var temp_arr = shoe_coord[shoe_type][bolt_dim].shoe;
+        var temp_cover = shoe_coord[shoe_type][bolt_dim].cover;
+        var temp_center = shoe_coord[shoe_type][bolt_dim].P
+        var temp_D = shoe_coord[shoe_type][bolt_dim].D
 
         // RECT CASE
         if (section_type == "rect") {
@@ -198,22 +206,15 @@ CS_LAYOUT_JSX = (function () {
 
 
             // Draw shoes
-            var shoe_type = jQuery("#cs_shoe_type").val();
-            var bolt_dim = jQuery("#cs_bolt_dim").val();
-            var temp_arr = shoe_coord[shoe_type][bolt_dim].shoe;
-            var temp_cover = shoe_coord[shoe_type][bolt_dim].cover;
-            var temp_center = shoe_coord[shoe_type][bolt_dim].P
-            var temp_D = shoe_coord[shoe_type][bolt_dim].D
+            var shoe_side_1 = parseInt(jQuery("#cs_shoe_s1").val());
+            var shoe_side_2 = parseInt(jQuery("#cs_shoe_s2").val());
+            var shoe_side_3 = parseInt(jQuery("#cs_shoe_s3").val());
+            var shoe_side_4 = parseInt(jQuery("#cs_shoe_s4").val());
 
+            // Corver shoes
             if (document.getElementById("cs_corner_shoe").checked) {
 
                 var angle_arr = [90 ,0, -90, -180];
-                var add_to_coord = [
-                    [0.5 * col_width - temp_cover[0], 0.5 * col_height - temp_cover[1]],
-                    [0.5 * col_width - temp_cover[0], 0.5 * col_height - temp_cover[1]],
-                    [0.5 * col_width - temp_cover[0], 0.5 * col_height - temp_cover[1]],
-                    [0.5 * col_width - temp_cover[0], 0.5 * col_height - temp_cover[1]]
-                ];
                 var add_to_coord_corner = [
                     [0.5 * col_width - temp_cover[0], 0.5 * col_height - temp_cover[1]],
                     [0.5 * col_width - temp_cover[0], -0.5 * col_height + temp_cover[1]],
@@ -240,19 +241,106 @@ CS_LAYOUT_JSX = (function () {
                     });
                     Layers_board.create('circle', [[add_to_coord_corner[corner][0] + temp_center[0], add_to_coord_corner[corner][1] + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
                 };
-
-
-
-
-
             };
 
-
-
-
-
-
-
+            // Side shoes
+            if (shoe_side_1 > 0){
+                var side_sub = (col_width - 2 * temp_cover[0]) / (shoe_side_1 + 1);
+                var side_add = temp_cover[0];
+                for (var j = 0; j < shoe_side_1; j++){
+                    side_add += side_sub;
+                    var temp_coord = [];
+                    for (var i in temp_arr) {
+                        var CX = -0.5 * col_width + side_add + temp_center[0];
+                        var CY = 0.5 * col_height - temp_cover[1] + temp_center[1];
+                        var X = -0.5 * col_width + side_add + temp_arr[i][0];
+                        var Y = 0.5 * col_height - temp_cover[1] + temp_arr[i][1];
+                        temp_coord.push(rotate(CX, CY, X, Y, 135));
+                    };
+                    Layers_board.create('polygon', temp_coord, {
+                        fillColor: '#3399ff',
+                        highlight: false,
+                        fixed: true,
+                        fillOpacity: 0.5,
+                        vertices: { visible: false },
+                        borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
+                    });
+                    Layers_board.create('circle', [[-0.5 * col_width + side_add + temp_center[0], 0.5 * col_height - temp_cover[1] + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                };
+            };
+            if (shoe_side_2 > 0) {
+                var side_sub = (col_height - 2 * temp_cover[1]) / (shoe_side_2 + 1);
+                var side_add = temp_cover[1];
+                for (var j = 0; j < shoe_side_2; j++) {
+                    side_add += side_sub;
+                    var temp_coord = [];
+                    for (var i in temp_arr) {
+                        var CX = 0.5 * col_width - temp_cover[1] + temp_center[0];
+                        var CY = 0.5 * col_height - side_add + temp_center[1];
+                        var X = 0.5 * col_width - temp_cover[1] + temp_arr[i][0];
+                        var Y = 0.5 * col_height - side_add + temp_arr[i][1];
+                        temp_coord.push(rotate(CX, CY, X, Y, 45));
+                    };
+                    Layers_board.create('polygon', temp_coord, {
+                        fillColor: '#3399ff',
+                        highlight: false,
+                        fixed: true,
+                        fillOpacity: 0.5,
+                        vertices: { visible: false },
+                        borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
+                    });
+                    Layers_board.create('circle', [[0.5 * col_width - temp_cover[1] + temp_center[0], 0.5 * col_height - side_add + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                };
+            };
+            if (shoe_side_3 > 0) {
+                var side_sub = (col_width - 2 * temp_cover[0]) / (shoe_side_1 + 1);
+                var side_add = temp_cover[0];
+                for (var j = 0; j < shoe_side_3; j++) {
+                    side_add += side_sub;
+                    var temp_coord = [];
+                    for (var i in temp_arr) {
+                        var CX = -0.5 * col_width + side_add + temp_center[0];
+                        var CY = -0.5 * col_height + temp_cover[1] + temp_center[1];
+                        var X = -0.5 * col_width + side_add + temp_arr[i][0];
+                        var Y = -0.5 * col_height + temp_cover[1] + temp_arr[i][1];
+                        temp_coord.push(rotate(CX, CY, X, Y, -45));
+                    };
+                    Layers_board.create('polygon', temp_coord, {
+                        fillColor: '#3399ff',
+                        highlight: false,
+                        fixed: true,
+                        fillOpacity: 0.5,
+                        vertices: { visible: false },
+                        borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
+                    });
+                    Layers_board.create('circle', [[-0.5 * col_width + side_add + temp_center[0], -0.5 * col_height + temp_cover[1] + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                };
+            };
+            if (shoe_side_4 > 0) {
+                var side_sub = (col_height - 2 * temp_cover[1]) / (shoe_side_2 + 1);
+                var side_add = temp_cover[1];
+                for (var j = 0; j < shoe_side_4; j++) {
+                    side_add += side_sub;
+                    var temp_coord = [];
+                    for (var i in temp_arr) {
+                        var CX = -0.5 * col_width + temp_cover[1] + temp_center[0];
+                        var CY = 0.5 * col_height - side_add + temp_center[1];
+                        var X = -0.5 * col_width + temp_cover[1] + temp_arr[i][0];
+                        var Y = 0.5 * col_height - side_add + temp_arr[i][1];
+                        temp_coord.push(rotate(CX, CY, X, Y, -135));
+                    };
+                    Layers_board.create('polygon', temp_coord, {
+                        fillColor: '#3399ff',
+                        highlight: false,
+                        fixed: true,
+                        fillOpacity: 0.5,
+                        vertices: { visible: false },
+                        borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
+                    });
+                    Layers_board.create('circle', [[-0.5 * col_width + temp_cover[1] + temp_center[0], 0.5 * col_height - side_add + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                };
+            };
+            
             // Get rebar data from inputs
             var rebar_data = [];
             for (var i = 1; i <= 2; i++) {
@@ -327,7 +415,7 @@ CS_LAYOUT_JSX = (function () {
             for (point in rebar_coord) Layers_board.create('circle', [rebar_coord[point][1], 0.5 * rebar_coord[point][0]], { strokeColor: 'red', fillColor: 'red', fixed: true, highlight: false });
         }
 
-        // RECT CASE
+        // ROUND CASE
         else if (section_type == "round") {
 
             // Section dims
@@ -338,7 +426,7 @@ CS_LAYOUT_JSX = (function () {
             Layers_board.setBoundingBox(BB);
 
             // Draw shape
-            Layers_board.create('circle', [[0, 0], 0.5 * col_diam], { strokeColor: '#666666', fillColor: '#d9d9d9', fixed: true, highlight: false });
+            Layers_board.create('circle', [[0, 0], 0.5 * col_diam], { strokeColor: '#666666', fillColor: '#d9d9d9', fillOpacity: 0.2, fixed: true, highlight: false });
 
             // Dims left
             Layers_board.create('text', [-0.5 * col_diam - 0.1 * col_diam, 0, col_diam], { anchorX: 'middle', anchorY: 'bottom', fontSize: 20, rotate: "90", display: 'internal', highlight: false, fixed: true });
@@ -360,7 +448,42 @@ CS_LAYOUT_JSX = (function () {
                 straightLast: false,
                 strokeWidth: 2,
             });
+			
 
+				
+			// Draw shoes
+			
+			var shoe_num = parseInt(jQuery("#cs_round_shoe_num").val());
+			var update_arr_angle = [];
+			for (var i in temp_arr) update_arr_angle.push(rotate(0, 0, temp_arr[i][0], temp_arr[i][1], 135));
+			
+			if (shoe_num > 0){
+				var angle_sub = 360 / shoe_num;
+				var angle_add = 0;
+				for (var j=0; j < shoe_num; j++){
+					var temp_coord = [];
+					for (var i in update_arr_angle){
+						var CX = 0;
+						var CY = 0;
+						var X = update_arr_angle[i][0];
+						var Y = 0.5 * col_diam - temp_cover[1] + update_arr_angle[i][1];
+						temp_coord.push(rotate(CX, CY, X, Y, angle_add));
+					};
+					Layers_board.create('polygon', temp_coord, {
+						fillColor: '#3399ff',
+						highlight: false,
+						fixed: true,
+						fillOpacity: 0.5,
+						vertices: { visible: false },
+						borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
+					});
+					Layers_board.create('circle', [rotate(0, 0, 0, 0.5 * col_diam - temp_cover[1], angle_add), 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+					angle_add += angle_sub;
+				};
+			};
+			
+				
+			// Draw rebar
             var cover_1 = parseFloat(jQuery("#cs_round_cover_1").val());
             var cover_2 = parseFloat(jQuery("#cs_round_cover_2").val());
             var layer_1 = parseFloat(jQuery("#cs_round_reb_num_1").val());
@@ -386,6 +509,8 @@ CS_LAYOUT_JSX = (function () {
                     angle += sub_angle;
                 };
             };
+
+
         };
     };
 

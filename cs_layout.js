@@ -1,6 +1,5 @@
 CS_LAYOUT = (function () {
 
-
     // Init rebar diameters --------------------------------------------------------------------
     var initRebarDiams = function () {
         var init_rebar_arr = '\
@@ -20,10 +19,23 @@ CS_LAYOUT = (function () {
         var dim_arr;
         var res = "";
         if (base_bolt == "RPP-P" || base_bolt == "RPP-L") dim_arr = ['M16', 'M20', 'M24', 'M30', 'M39'];
-        else if (base_bolt == "RPP-E-P" || base_bolt == "RPP-E-L") dim_arr = ['M30', 'M36', 'M39', 'M45', 'M52', 'M60'];
+        else if (base_bolt == "RPP-E-P" || base_bolt == "RPP-E-L") dim_arr = ['M30', 'M36', 'M39', 'M45', 'M52'];
         for (var i in dim_arr) res += "<option value=\"" + dim_arr[i] + "\">" + dim_arr[i] + "</option>";
         jQuery("#cs_bolt_dim").empty();
         jQuery("#cs_bolt_dim").append(res);
+    };
+
+    // Shoe Type selection ---------------------------------------------------------------------
+    var initShoeTypes = function(shoe_type,update){
+        var shoe_arr;
+        var res = "";
+        if (shoe_type == "RPK-N2") shoe_arr = ["RPP-P", "RPP-L"];
+        else if (shoe_type == "RPK-E2") shoe_arr = ["RPP-E-P", "RPP-E-L"];
+        for (var i in shoe_arr) res += "<option value=\"" + shoe_arr[i] + "\">" + shoe_arr[i] + "</option>";
+        jQuery("#cs_bolt_type").empty();
+        jQuery("#cs_bolt_type").append(res);
+        initBoltDims(shoe_arr[0]);
+        if (update) CS_LAYOUT_JSX.initRebarDraw();
     };
 
     // Init default section data ---------------------------------------------------------------
@@ -93,6 +105,10 @@ CS_LAYOUT = (function () {
                 jQuery("#cs_rect_end_4_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_rect_cover_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_rect_cover_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_shoe_s1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_shoe_s2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_shoe_s3").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_shoe_s4").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
             }
             else if (sec_type == 'round'){
                 // CIRCLE
@@ -103,11 +119,9 @@ CS_LAYOUT = (function () {
                 jQuery("#cs_round_reb_num_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_round_reb_diam_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_round_reb_diam_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+				jQuery("#cs_round_shoe_num").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
             };
-            // Shoe
-            jQuery("#cs_shoe_type").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
             jQuery("#cs_bolt_dim").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-
         };
 
         
@@ -295,7 +309,7 @@ CS_LAYOUT = (function () {
                     </div>\
                     <div style="margin-top:26px;">\
                     <label><i class="fa fa-life-bouy"></i> Number</label>\
-                    <input class="w3-input w3-border" type="number" value="4" name="Adults" min="0" max="10">\
+                    <input id="cs_round_shoe_num" class="w3-input w3-border" type="number" value="4" name="Adults" min="0" max="10">\
                     </div>\
                     </div>\
                     </div>\
@@ -356,7 +370,7 @@ CS_LAYOUT = (function () {
                     </div>');
         };
         initRebarDiams();
-        initChangeEvents(sec_type)
+        initChangeEvents(sec_type);
     };
 
 
@@ -364,6 +378,7 @@ CS_LAYOUT = (function () {
 
     return {
         initBoltDims: initBoltDims,
+        initShoeTypes: initShoeTypes,
         initSectioninputs: initSectioninputs,
         initRebarDiams: initRebarDiams,
         initSecDefaultData: initSecDefaultData,
@@ -383,11 +398,15 @@ jQuery(document).ready(function () {
 
     console.log('start layout page script');
 
+    // Slect shoe type event ----------------------------------------------------------------
+    jQuery("#cs_shoe_type").change(function () {
+        CS_LAYOUT.initShoeTypes(jQuery(this).val(),true);
+    });
+
     // Slect bolt type event ----------------------------------------------------------------
     jQuery("#cs_bolt_type").change(function () {
         CS_LAYOUT.initBoltDims(jQuery(this).val());
     });
-
 
     // Select section type event ------------------------------------------------------------
     jQuery("#cs_sect_type").change(function () {
@@ -399,42 +418,19 @@ jQuery(document).ready(function () {
     // Init column section deck  
     jQuery("#cs_column_sec_view").height(jQuery("#cs_column_sec_view").width());
 
+    
+
 
     // Init starting section ----------------------------------------------------------------
     var init_sec = "rect";
+    var init_shoe = "RPK-N2"
     var init_bolt = "RPP-P";
     CS_LAYOUT.initSectioninputs(init_sec);
+    CS_LAYOUT.initShoeTypes(init_shoe,false);
     CS_LAYOUT.initBoltDims(init_bolt);
     CS_LAYOUT.initRebarDiams();
     CS_LAYOUT.initSecDefaultData(init_sec);
     CS_LAYOUT_JSX.initRebarDraw();
-
-    
-
-    
-    
-
-
-
-
-
-
-
-
-    
-
-    
-
-
-    // jQuery("#cs_refresh_view").unbind().click(function () {
-
-    // });
-
-
-
-
-
-
 
 
 });
