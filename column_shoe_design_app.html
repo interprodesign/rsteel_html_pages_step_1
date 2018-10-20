@@ -8,11 +8,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="w3.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+    <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+
     <script src="cs_layout.js"></script>
 
     <style>
         body {
             font-family: "Poppins", sans-serif
+        };
+
+        .jxgbox {
+            width:100%;
+            border-color: #7e7e7e;  
+            border-radius: 0px;
         };
         
     </style>
@@ -101,25 +111,8 @@
                     <h4>Column Section and Connection 3D View</h4>
                 </div>
                 <div class="w3-container w3-white w3-padding-16 w3-half">
-                    <div class="w3-container">A car is a wheeled, self-powered motor vehicle used for transportation.
-                        Most definitions of the
-                        term
-                        specify that cars are designed to run primarily on roads. (Wikipedia)
-                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
-                        term
-                        specify that cars are designed to run primarily on roads. (Wikipedia)
-                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
-                        term
-                        specify that cars are designed to run primarily on roads. (Wikipedia)
-                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
-                        term
-                        specify that cars are designed to run primarily on roads. (Wikipedia)
-                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
-                        term
-                        specify that cars are designed to run primarily on roads. (Wikipedia)
-                        A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the
-                        term
-                        specify that cars are designed to run primarily on roads. (Wikipedia)
+                    <div class="w3-container">
+                        <div id="cs_column_sec_view" class="jxgbox"></div>
                     </div>
                 </div>
                 <div class="w3-container w3-white w3-padding-16 w3-half">
@@ -146,7 +139,7 @@
                     </div>
                 </div>
                 <div class="w3-bar w3-white">
-                    <a href="#" class="w3-bar-item w3-button w3-blue w3-right"><i class="fa fa-refresh w3-xlarge"></i></a>
+                    <a id="cs_refresh_view" class="w3-bar-item w3-button w3-blue w3-right"><i class="fa fa-refresh w3-xlarge"></i></a>
                     <!-- <a class="w3-bar-item w3-white w3-right w3-large">Refresh View</a> -->
                 </div>
             </div>
