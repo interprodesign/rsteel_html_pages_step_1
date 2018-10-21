@@ -56,7 +56,7 @@ CS_LAYOUT = (function () {
         else if (sec_type == "round"){
             jQuery("#cs_diam_D").val('400');
             jQuery("#cs_round_cover_1").val('50');
-            jQuery("#cs_round_reb_num_1").val('10');
+            jQuery("#cs_round_reb_num_1").val('8');
             jQuery("#cs_round_reb_diam_1").val('16');
         };
     };
@@ -109,6 +109,7 @@ CS_LAYOUT = (function () {
                 jQuery("#cs_shoe_s2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_shoe_s3").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_shoe_s4").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_corner_shoe").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
             }
             else if (sec_type == 'round'){
                 // CIRCLE
@@ -171,7 +172,7 @@ CS_LAYOUT = (function () {
                     </div>\
                     <div style="margin-top:18px;">\
                     <label><i class="fa fa-arrows-v"></i> Grouting t (mm)</label>\
-                    <input id="cs_grouting_t" class="w3-input w3-border" type="text">\
+                    <input id="cs_grouting_t" class="w3-input w3-border" type="text" value="100">\
                     </div>\
                     </div>\
                     </div>');
@@ -320,7 +321,7 @@ CS_LAYOUT = (function () {
                     </div>\
                     <div style="margin-top:27px;">\
                     <label><i class="fa fa-window-minimize"></i> Grouting t (mm)</label>\
-                    <input id="cs_grouting_t" class="w3-input w3-border" type="text">\
+                    <input id="cs_grouting_t" class="w3-input w3-border" type="text" value="100">\
                     </div>\
                     </div>\
                     </div><br>');
@@ -372,9 +373,6 @@ CS_LAYOUT = (function () {
         initRebarDiams();
         initChangeEvents(sec_type);
     };
-
-
-    
 
     return {
         initBoltDims: initBoltDims,
@@ -431,6 +429,20 @@ jQuery(document).ready(function () {
     CS_LAYOUT.initRebarDiams();
     CS_LAYOUT.initSecDefaultData(init_sec);
     CS_LAYOUT_JSX.initRebarDraw();
+    CS_THREE.initThreeView();
+
+
+
+    jQuery("#cs_refresh_view").unbind().click(function(){
+        CS_THREE.initThreeView();
+        CS_LAYOUT_JSX.initRebarDraw();
+    });
+
+
+    window.onresize = function(event) {
+        CS_LAYOUT_JSX.initRebarDraw();
+        CS_THREE.initThreeView();
+    };
 
 
 });
