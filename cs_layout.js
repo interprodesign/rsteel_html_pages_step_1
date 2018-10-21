@@ -69,8 +69,8 @@ CS_LAYOUT = (function () {
             if (sec_type == 'rect'){
                 // Refresh view ------------------------------------------------------------------------------------
                 // RECT
-                jQuery("#cs_rect_h").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_b").change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_h").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
+                jQuery("#cs_rect_b").change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
                 jQuery("#cs_rect_num_1_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_rect_num_2_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_rect_num_3_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
@@ -113,7 +113,7 @@ CS_LAYOUT = (function () {
             }
             else if (sec_type == 'round'){
                 // CIRCLE
-                jQuery("#cs_diam_D").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_diam_D").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
                 jQuery("#cs_round_cover_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_round_cover_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_round_reb_num_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
@@ -123,6 +123,7 @@ CS_LAYOUT = (function () {
 				jQuery("#cs_round_shoe_num").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
             };
             jQuery("#cs_bolt_dim").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+            jQuery("#cs_grouting_t").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
         };
 
         
@@ -411,6 +412,7 @@ jQuery(document).ready(function () {
         CS_LAYOUT.initSectioninputs(jQuery(this).val());
         CS_LAYOUT.initSecDefaultData(jQuery(this).val());
         CS_LAYOUT_JSX.initRebarDraw();
+        CS_THREE.initThreeView();
     });
 
     // Init column section deck  
