@@ -122,8 +122,9 @@ CS_LAYOUT = (function () {
                 jQuery("#cs_round_reb_diam_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
 				jQuery("#cs_round_shoe_num").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
             };
-            jQuery("#cs_bolt_dim").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-            jQuery("#cs_grouting_t").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
+            jQuery("#cs_grouting_bg").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
+            jQuery("#cs_grouting_tg").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
+            jQuery("#cs_base_tp").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
         };
 
         
@@ -168,12 +169,27 @@ CS_LAYOUT = (function () {
                     </div>\
                     <div class="w3-col w3-margin-left" style="width:15%">\
                     <div class="w3-bar-block">\
-                    <div style="margin-top:15px" class="w3-center">\
-                    <img src="cs_grouting_t.png" style="width:110px">\
+                    <div style="margin-top:6px" class="w3-center">\
+                    <img src="cs_grouting_plate_t.png" style="width:135px">\
                     </div>\
-                    <div style="margin-top:18px;">\
-                    <label><i class="fa fa-arrows-v"></i> Grouting t (mm)</label>\
-                    <input id="cs_grouting_t" class="w3-input w3-border" type="text" value="100">\
+                    <div style="margin-top:25px;">\
+                    <label><i class="fa fa-arrows-h"></i> Grouting b<sub>g</sub> (mm)</label>\
+                    <input id="cs_grouting_bg" class="w3-input w3-border" type="text" value="50">\
+                    <label><i class="fa fa-arrows-v w3-margin-top"></i> Grouting t<sub>g</sub> (mm)</label>\
+                    <input id="cs_grouting_tg" class="w3-input w3-border" type="text" value="100">\
+                    <label><i class="fa fa-chain-broken w3-margin-top"></i> Grouting Mat.</label>\
+                    <select id = "cs_grt_concrete_type" class= "w3-select w3-border" name = "option">\
+                    <option value="20">C20/25</option>\
+                    <option value="25">C25/30</option>\
+                    <option value="30">C30/37</option>\
+                    <option value="35">C35/45</option>\
+                    <option value="40">C40/50</option>\
+                    <option value="45">C45/55</option>\
+                    <option value="50">C50/60</option>\
+                    </select>\
+                    <label><i class="fa fa-arrows-v w3-margin-top"></i> Base Plate t<sub>p</sub> (mm)</label>\
+                    <input id="cs_base_tp" class="w3-input w3-border" type="text" value="400">\
+                    <br>\
                     </div>\
                     </div>\
                     </div>');
@@ -306,10 +322,10 @@ CS_LAYOUT = (function () {
             jQuery("#cs_col_shoes_inputs").append('\
                     <div class="w3-col w3-margin-left" style="width:15%">\
                     <div class= "w3-bar-block">\
-                    <div style="margin-top:12px;" class="w3-center">\
-                    <img src="cs_round_shoes_pos.png" style="width:120px">\
+                    <div style="margin-top:10px;" class="w3-center">\
+                    <img src="cs_round_grt_num.png" style="width:120px">\
                     </div>\
-                    <div style="margin-top:26px;">\
+                    <div style="margin-top:7px;">\
                     <label><i class="fa fa-life-bouy"></i> Number</label>\
                     <input id="cs_round_shoe_num" class="w3-input w3-border" type="number" value="4" name="Adults" min="0" max="10">\
                     </div>\
@@ -317,12 +333,23 @@ CS_LAYOUT = (function () {
                     </div>\
                     <div class="w3-col w3-margin-left" style="width:15%">\
                     <div class="w3-bar-block">\
-                    <div style="margin-top:4px;" class="w3-center">\
-                    <img src="cs_grouting_t.png" style="width:110px">\
+                    <label><i class="fa fa-arrows-h"></i> Grouting b<sub>g</sub> (mm)</label>\
+                    <input id="cs_grouting_bg" class="w3-input w3-border" type="text" value="20">\
+                    <label><i class="fa fa-arrows-v w3-margin-top"></i> Grouting t<sub>g</sub> (mm)</label>\
+                    <input id="cs_grouting_tg" class="w3-input w3-border" type="text" value="100">\
+                    <label><i class="fa fa-chain-broken w3-margin-top"></i> Grouting Mat.</label>\
+                    <select id = "cs_grt_concrete_type" class= "w3-select w3-border" name = "option">\
+                    <option value="20">C20/25</option>\
+                    <option value="25">C25/30</option>\
+                    <option value="30">C30/37</option>\
+                    <option value="35">C35/45</option>\
+                    <option value="40">C40/50</option>\
+                    <option value="45">C45/55</option>\
+                    <option value="50">C50/60</option>\
+                    </select>\
+                    <label><i class="fa fa-arrows-v w3-margin-top"></i> Base Plate t<sub>p</sub> (mm)</label>\
+                    <input id="cs_base_tp" class="w3-input w3-border" type="text" value="400">\
                     </div>\
-                    <div style="margin-top:27px;">\
-                    <label><i class="fa fa-window-minimize"></i> Grouting t (mm)</label>\
-                    <input id="cs_grouting_t" class="w3-input w3-border" type="text" value="100">\
                     </div>\
                     </div>\
                     </div><br>');

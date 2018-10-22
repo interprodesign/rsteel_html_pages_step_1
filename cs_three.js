@@ -23,7 +23,9 @@ CS_THREE = (function () {
                 var col_height = parseFloat(jQuery("#cs_diam_D").val());
             };
 
-            var grt_height = parseFloat(jQuery("#cs_grouting_t").val());
+            var grt_width = parseFloat(jQuery("#cs_grouting_bg").val());
+            var grt_height = parseFloat(jQuery("#cs_grouting_tg").val());
+            var base_height = parseFloat(jQuery("#cs_base_tp").val());
 
             // renderer
             renderer = new THREE.WebGLRenderer();
@@ -51,6 +53,8 @@ CS_THREE = (function () {
 
             // axes
             scene.add(new THREE.AxisHelper(500));
+
+
 
 
             // Draw Geometry ----------------------------------------------------------------------------------------------------------
@@ -83,8 +87,8 @@ CS_THREE = (function () {
 
 
             // Grouting
-            if (sec_type == 'rect') column_geom = new THREE.BoxGeometry( col_width, grt_height, col_height );
-            else if (sec_type == "round") column_geom = new THREE.CylinderGeometry( 0.5*col_width, 0.5*col_height, grt_height, 20 );
+            if (sec_type == 'rect') column_geom = new THREE.BoxGeometry(2 * grt_width + col_width, grt_height, 2 * grt_width + col_height );
+            else if (sec_type == "round") column_geom = new THREE.CylinderGeometry(2 * grt_width + 0.5 * col_width, 2 * grt_width + 0.5*col_height, grt_height, 20 );
 
             mesh_1 = new THREE.Mesh ( 
                 column_geom, 
@@ -109,7 +113,7 @@ CS_THREE = (function () {
 
 
             // Base plate
-            column_geom = new THREE.BoxGeometry( 2 * col_width, 300, 2 * col_height );
+            column_geom = new THREE.BoxGeometry(2 * (grt_width + col_width), base_height, 2 * (grt_width + col_height) );
             mesh_1 = new THREE.Mesh ( 
                 column_geom, 
                 new THREE.MeshPhongMaterial( {
@@ -128,8 +132,8 @@ CS_THREE = (function () {
             );
             scene.add( mesh_1 );
             scene.add( mesh_2 );
-            mesh_1.position.set( 0, - grt_height - 153, 0 );
-            mesh_2.position.set( 0, - grt_height - 153, 0 );
+            mesh_1.position.set(0, - grt_height - 0.5 * base_height + 3, 0 );
+            mesh_2.position.set(0, - grt_height - 0.5 * base_height + 3, 0 );
 
 
             // // Draw bolt axes
@@ -145,36 +149,31 @@ CS_THREE = (function () {
             // scene.add(Line);
 
 
-            // Draw shoes
-            // var shoes = new THREE.Geometry();
-
-            // geo.vertices = [
-            //     new THREE.Vector3(0, 0, 0),
-            //     new THREE.Vector3(0, 100, 0),
-            //     new THREE.Vector3(0, 0, 100)
-            // ];
-            // geo.faces.push(new THREE.Face3(0, 1, 2));
-
-            // geo.computeBoundingSphere();
-            // var material = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE.DoubleSide });
-            // var mesh = new THREE.Mesh(geo, material);
-            // scene.add(mesh);
-
-
-            // var triangle = new THREE.Shape([
-            //     new THREE.Vector2 (0, 50),
-            //     new THREE.Vector2 (50, 50),
-            //     new THREE.Vector2 (50, 0)
-            // ]);
-            // var material = new THREE.MeshPhongMaterial({ color: 0x3399ff, transparent: true, opacity: 0.9 });
-            // var geometry = new THREE.ExtrudeGeometry(triangle, {
-            //     bevelEnabled: false,
-            //     amount: 20
-            // });
-
-            // var mesh = new THREE.Mesh(geometry, material);
-            // mesh.rotation.x = 3.14/2
-            // scene.add(mesh);
+            
+            
+            // Material for mesh
+            var material = new THREE.MeshPhongMaterial({color: 'red', transparent: false, side: THREE.DoubleSide });
+            // Depth to extrude
+            var depth = -100;
+            // Shape to extrude
+            var shape = new THREE.Shape([
+                new THREE.Vector2(23, -60),
+                new THREE.Vector2(-88, -60),
+                new THREE.Vector2(-88, 88),
+                new THREE.Vector2(60, 88),
+                new THREE.Vector2(60, -23)
+            ]);
+            var extrudeSettings1 = {
+                bevelEnabled: false,
+                steps: 1,
+                amount: depth
+            };
+            var geometry1 = new THREE.ExtrudeGeometry(shape, extrudeSettings1);
+            var mesh1 = new THREE.Mesh(geometry1, material);
+            mesh1.rotation.x = Math.PI / 2
+            mesh1.rotation.z = Math.PI / 2
+            // mesh1.position.set(0, 0, 0);
+            scene.add(mesh1);
 
             
 
