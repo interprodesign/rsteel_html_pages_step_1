@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>R-Steel Column Shoe Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="w3.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <style>
+
+        body {
+            font-family: "Poppins", sans-serif
+        };   
+        
+    </style>
+</head>
+
+
+
+<body class="w3-light-grey">
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-dark-grey w3-bar-block w3-padding w3-collapse w3-top" style="width:250px;font-weight:bold;z-index:3;"
+        id="Sidebar">
+
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft w3-hover-light-grey"
+            style="width:100%;font-size:18px">Close Menu</a>
+
+        <br>
+        <br>
+
+        <div>
+            <!-- <h3><b>R-STEEL</b></h3>
+            Column Show Design -->
+            <img src="column_shoe_logo.png" style="width:200px">
+
+        </div>
+
+        <br>
+
+        <div class=" w3-border-bottom w3-text-grey w3-border-white w3-center"></div>
+
+        <!-- <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a> -->
+
+        <div class="w3-row-padding w3-center w3-padding-16">
+            <div href="#" class="w3-button w3-circle w3-hover-light-grey w3-xlarge"><i class="fa fa-question-circle-o"></i></div>
+            <div href="#" class="w3-button w3-circle w3-hover-light-grey w3-xlarge "><i class="fa fa-cogs"></i></div>
+            <div href="#" class="w3-button w3-circle w3-hover-light-grey w3-xlarge"><i class="fa fa-arrow-circle-left"></i></div>
+        </div>
+
+        <div class=" w3-border-bottom w3-text-grey w3-border-white w3-center"></div>
+
+        <br>
+
+        <!-- Left main menu tabs -->
+        <div id="cs_main_left_menu" class="w3-bar-block w3-large">
+            <a id="cs_main_left_menu_details" href="#" class="w3-bar-item w3-button w3-light-grey w3-hover-light-grey">Details</a>
+            <a id="cs_main_left_menu_layouts" href="#" class="w3-bar-item w3-button w3-hover-light-grey">Layouts</a>
+            <a id="cs_main_left_menu_loads" href="#" class="w3-bar-item w3-button w3-hover-light-grey">Loads</a>
+            <a id="cs_main_left_menu_factors" href="#" class="w3-bar-item w3-button w3-hover-light-grey">Factors</a>
+            <a id="cs_main_left_menu_analysis" href="#" class="w3-bar-item w3-button w3-hover-light-grey">Analysis</a>
+        </div>
+    </nav>
+
+
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-hide-large w3-light-grey w3-xlarge w3-padding">
+        <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+    <!-- Top right -->
+    <div class="w3-bar w3-light-grey w3-large">
+        <a class="w3-bar-item">R-STEEL DESIGN</a>
+        <a href="#" class="w3-bar-item w3-button w3-blue w3-right"><i class="fa fa-envelope-o w3-xlarge"></i></a>
+        <a class="w3-bar-item w3-right"><i class="fa fa-user-circle-o w3-xlarge"></i> User Name</a>
+    </div>
+
+
+    <!-- Page content -->
+    <div class="w3-main w3-light-grey" style="margin-left:280px;max-width:1100px;margin-right:40px">
+
+        <!-- Header -->
+        <div class="w3-container" style="margin-top:25px;">
+            <h1 class="w3-text-dark-grey">Information about engineer and current project</h1>
+            <p class="w3-text-dark-grey">The filled data will be reflected in output design report</p>
+        </div>
+
+
+        <br>
+
+        
+        <div class="w3-row">
+            <div class="w3-container">
+                <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
+                    <h4>Project Details</h4>
+                </div>
+            </div>
+            <div class="w3-container w3-margin-left w3-margin-right w3-white">
+                <div class="w3-row-padding w3-margin-top">
+                    <div class="w3-col" style="width:33%">
+                        <label><i class="fa fa-user-o"></i> Name</label>
+                        <input class="w3-input w3-border" type="text">
+                    </div>
+                    <div class="w3-col" style="width:33%">
+                        <label><i class="fa fa-user-o"></i> Surname</label>
+                        <input class="w3-input w3-border" type="text">
+                    </div>
+                    <div class="w3-col" style="width:34%">
+                        <label><i class="fa fa-registered"></i> Organization</label>
+                        <input class="w3-input w3-border">
+                    </div>
+                </div>
+                <div class="w3-row-padding w3-margin-top">
+                    <div class="w3-col" style="width:33%">
+                        <label><i class="fa fa-street-view"></i> Adress</label>
+                        <input class="w3-input w3-border" type="text">
+                    </div>
+                    <div class="w3-col" style="width:33%">
+                        <label><i class="fa fa-mobile-phone"></i> Phone</label>
+                        <input class="w3-input w3-border" type="text">
+                    </div>
+                    <div class="w3-col" style="width:34%">
+                        <label><i class="fa fa-envelope-o"></i> Email</label>
+                        <input class="w3-input w3-border" type="text">
+                    </div>
+                </div>
+                <div class="w3-row-padding w3-margin-top">
+                    <div class="w3-col" style="width:33%">
+                        <label><i class="fa fa-university"></i> Project Name</label>
+                        <input class="w3-input w3-border" type="text">
+                    </div>
+                    <div class="w3-col" style="width:33%">
+                        <label><i class="fa fa-newspaper-o"></i> Project ID</label>
+                        <input class="w3-input w3-border" type="text">
+                    </div>
+                    <div class="w3-col" style="width:34%">
+                        <label><i class="fa fa-flag-o"></i> Project Location</label>
+                        <input class="w3-input w3-border" type="text">
+                    </div>
+                </div>
+                <div class="w3-row-padding w3-margin-top">
+                    <div class="w3-col" style="width:100%">
+                        <label><i class="fa fa-edit"></i> Project Notes</label>
+                        <textarea class="w3-input w3-border" style="resize:none" type="text" rows="4"></textarea>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    </div>
+
+
+    
+
+</body>
+
+</html>
