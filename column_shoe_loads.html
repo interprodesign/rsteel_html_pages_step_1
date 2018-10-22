@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="w3.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="handsontable.full.css">
+    <script src="handsontable.full.js"></script>
+
     <style>
 
         body {
@@ -91,20 +94,18 @@
             <h1 class="w3-text-dark-grey">Action effects to be considered in analysis</h1>
             <p class="w3-text-dark-grey">The loads that must be considered for column shoe connection before grouting (Stage I) and after the grout has hardened (Stage II)</p>
         </div>
-
-
+        
         <br>
-
         
         <div class="w3-row">
             <div class="w3-container">
                 <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
-                    <h4>Column Loads (Stage I)</h4>
+                    <h4>Column Loads before grouting (Stage I)</h4>
                 </div>
             </div>
             <div class="w3-container w3-margin-left w3-margin-right w3-white">
                 <div class="w3-row w3-margin-top">
-                    <div class="w3-green w3-container w3-quarter">
+                    <div class="w3-container w3-quarter">
                     </div>
                     <div class="w3-container w3-quarter w3-center w3-margin-top">
                         <img src="cs_before_grt.png" alt="section forces" style="width:100%;margin-top:10px">
@@ -112,19 +113,92 @@
                     <div class="w3-container w3-quarter w3-center w3-margin-top">
                         <img src="cs_loads_rect.png" alt="section forces" style="width:100%">
                     </div>
-                    <div class="w3-green w3-container w3-quarter">
+                    <div class="w3-container w3-quarter">
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-container">
+                        <h5>Load Cases (Anchors Section)</h5>
+                        <div id="cs_load_anchor" class="hot" style="width:100%;"></div>
                     </div>
                 </div>
             </div>
-            
-           
-            
+        </div>
+
+        <div class="w3-row w3-margin-top">
+            <div class="w3-container">
+                <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
+                    <h4>Column Loads after grouting (Stage II)</h4>
+                </div>
+            </div>
+            <div class="w3-container w3-margin-left w3-margin-right w3-white">
+                <div class="w3-row w3-margin-top">
+                    <div class="w3-container w3-quarter">
+                    </div>
+                    <div class="w3-container w3-quarter w3-center w3-margin-top">
+                        <img src="cs_after_grt.png" alt="section forces" style="width:100%;margin-top:10px">
+                    </div>
+                    <div class="w3-container w3-quarter w3-center w3-margin-top">
+                        <img src="cs_loads_rect.png" alt="section forces" style="width:100%">
+                    </div>
+                    <div class="w3-container w3-quarter">
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-container">
+                        <h5>Load Cases (Column Section)</h5>
+                        <div id="cs_load_grouting" class="hot" style="width:100%;"></div>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-container">
+                        <h5>Load Cases (Grouting Section)</h5>
+                        <div id="cs_load_column" class="hot" style="width:100%;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
     </div>
+
+
+    <script>
+        // Table - deck node coordinates --------------------------------------------------------------------------------------------------------------------
+            var loads_anchor = document.getElementById("cs_load_anchor");
+            var loads_grouting = document.getElementById("cs_load_grouting");
+            var loads_column = document.getElementById("cs_load_column");
+            var loads_before_settings = {
+                colHeaders: ['Ned (kN)', 'Medx (kN-m)', 'Medy (kN-m)', 'Vedx (kN)', 'Vedy (kN)', 'Notes'],
+                rowHeaders: true,
+                maxCols: 6,
+                startRows: 5,
+                minSpareRows: 1,
+                height: 160,
+                stretchH: 'all',
+                // afterSetDataAtCell: function (changes, source) {
+                //     BRIDGE_CROSS_TAB.dec_coord_data = dec_coord_table.getData();
+                //     for (var i in changes) {
+                //         BRIDGE_CROSS_TAB.dec_coord_data[changes[i][0]][changes[i][1]] = changes[i][3];
+                //     };
+                //     BRIDGE_CROSS_TAB.drawCrossSection();
+                // },
+                columns: [
+                    { type: 'numeric', format: '0.00'},
+                    { type: 'numeric', format: '0.00' },
+                    { type: 'numeric', format: '0.00' },
+                    { type: 'numeric', format: '0.00' },
+                    { type: 'numeric', format: '0.00' },
+                    { type: 'text', }
+                ]
+            };
+            var cs_anchor = new Handsontable(loads_anchor, loads_before_settings);
+            var cs_grouting = new Handsontable(loads_grouting, loads_before_settings);
+            var cs_column = new Handsontable(loads_column, loads_before_settings);
+            
+    </script>
 
 
     
