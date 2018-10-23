@@ -45,30 +45,65 @@ CS_LAYOUT_JSX = (function () {
     var shoe_coord = {
         'RPK-N2': {
             'M16': {
+                'Db':16,
+                'H':10,
+                'B':27,
+                'Dt':6,
+                'Da': 38,
+                'Du':38,
+                't':15,
                 'P': [0, 0],
                 'D': 28,
                 'shoe': [[20, -50], [-30, -50], [-30, 30], [50, 30], [50, -20]],
                 'cover': [50, 50]
             },
             'M20': {
+                'Db': 20,
+                'H': 13,
+                'B': 32,
+                'Dt': 6,
+                'Da': 46,
+                'Du': 46,
+                't': 20,
                 'P': [0, 0],
                 'D': 31,
                 'shoe': [[20, -50], [-33, -50], [-33, 33], [50, 33], [50, -20]],
                 'cover': [50, 50]
             },
             'M24': {
+                'Db': 24,
+                'H': 15,
+                'B': 41,
+                'Dt': 6,
+                'Da': 55,
+                'Du': 55,
+                't': 25,
                 'P': [0, 0],
                 'D': 35,
                 'shoe': [[20, -50], [-40, -50], [-40, 40], [50, 40], [50, -20]],
                 'cover': [50, 50]
             },
             'M30': {
+                'Db': 30,
+                'H': 25,
+                'B': 46,
+                'Dt': 8,
+                'Da': 65,
+                'Du': 70,
+                't': 35,
                 'P': [0, 0],
                 'D': 40,
                 'shoe': [[20, -50], [-45, -50], [-45, 45], [50, 45], [50, -20]],
                 'cover': [50, 50]
             },
             'M39': {
+                'Db': 39,
+                'H': 33,
+                'B': 60,
+                'Dt': 10,
+                'Da': 90,
+                'Du': 90,
+                't': 40,
                 'P': [0, 0],
                 'D': 55,
                 'shoe': [[23, -60], [-60, -60], [-60, 60], [60, 60], [60, -23]],
@@ -77,30 +112,65 @@ CS_LAYOUT_JSX = (function () {
         },
         'RPK-E2': {
             'M30': {
+                'Db': 30,
+                'H': 25,
+                'B': 46,
+                'Dt': 8,
+                'Da': 65,
+                'Du': 55,
+                't': 40,
                 'P': [0, 0],
                 'D': 45,
                 'shoe': [[20, -50], [-55, -50], [-55, 55], [50, 55], [50, -20]],
                 'cover': [50, 50]
             },
             'M36': {
+                'Db': 36,
+                'H': 31,
+                'B': 55,
+                'Dt': 8,
+                'Da': 80,
+                'Du': 46,
+                't': 45,
                 'P': [0, 0],
                 'D': 55,
                 'shoe': [[23, -60], [-58, -60], [-58, 58], [60, 58], [60, -23]],
                 'cover': [60, 60]
             },
             'M39': {
+                'Db': 39,
+                'H': 33,
+                'B': 60,
+                'Dt': 10,
+                'Da': 90,
+                'Du': 55,
+                't': 50,
                 'P': [0, 0],
                 'D': 55,
                 'shoe': [[23, -60], [-65, -60], [-65, 65], [60, 65], [60, -23]],
                 'cover': [60, 60]
             },
             'M45': {
+                'Db': 45,
+                'H': 36,
+                'B': 70,
+                'Dt': 10,
+                'Da': 100,
+                'Du': 55,
+                't': 60,
                 'P': [0, 0],
                 'D': 65,
                 'shoe': [[23, -60], [-88, -60], [-88, 88], [60, 88], [60, -23]],
                 'cover': [60, 60]
             },
             'M52': {
+                'Db': 52,
+                'H': 42,
+                'B': 80,
+                'Dt': 12,
+                'Da': 100,
+                'Du': 70,
+                't': 70,
                 'P': [0, 0],
                 'D': 70,
                 'shoe': [[23, -60], [-88, -60], [-88, 88], [60, 88], [60, -23]],
@@ -109,9 +179,14 @@ CS_LAYOUT_JSX = (function () {
         }
     };
 
+    var updated_shoe_coord = [];
+    var updated_bolt_coord = []
 
-
+    
     var initRebarDraw = function () {
+
+        updated_shoe_coord = [];
+        updated_bolt_coord = [];
 
         var section_type = jQuery("#cs_sect_type").val();
 
@@ -240,6 +315,8 @@ CS_LAYOUT_JSX = (function () {
                         borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
                     });
                     Layers_board.create('circle', [[add_to_coord_corner[corner][0] + temp_center[0], add_to_coord_corner[corner][1] + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                    updated_shoe_coord.push(temp_coord);
+                    updated_bolt_coord.push([add_to_coord_corner[corner][0] + temp_center[0], add_to_coord_corner[corner][1] + temp_center[1]]);
                 };
             };
 
@@ -266,6 +343,8 @@ CS_LAYOUT_JSX = (function () {
                         borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
                     });
                     Layers_board.create('circle', [[-0.5 * col_width + side_add + temp_center[0], 0.5 * col_height - temp_cover[1] + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                    updated_shoe_coord.push(temp_coord);
+                    updated_bolt_coord.push([-0.5 * col_width + side_add + temp_center[0], 0.5 * col_height - temp_cover[1] + temp_center[1]]);
                 };
             };
             if (shoe_side_2 > 0) {
@@ -290,10 +369,12 @@ CS_LAYOUT_JSX = (function () {
                         borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
                     });
                     Layers_board.create('circle', [[0.5 * col_width - temp_cover[1] + temp_center[0], 0.5 * col_height - side_add + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                    updated_shoe_coord.push(temp_coord);
+                    updated_bolt_coord.push([0.5 * col_width - temp_cover[1] + temp_center[0], 0.5 * col_height - side_add + temp_center[1]]);
                 };
             };
             if (shoe_side_3 > 0) {
-                var side_sub = (col_width - 2 * temp_cover[0]) / (shoe_side_1 + 1);
+                var side_sub = (col_width - 2 * temp_cover[0]) / (shoe_side_3 + 1);
                 var side_add = temp_cover[0];
                 for (var j = 0; j < shoe_side_3; j++) {
                     side_add += side_sub;
@@ -314,10 +395,12 @@ CS_LAYOUT_JSX = (function () {
                         borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
                     });
                     Layers_board.create('circle', [[-0.5 * col_width + side_add + temp_center[0], -0.5 * col_height + temp_cover[1] + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                    updated_shoe_coord.push(temp_coord);
+                    updated_bolt_coord.push([-0.5 * col_width + side_add + temp_center[0], -0.5 * col_height + temp_cover[1] + temp_center[1]]);
                 };
             };
             if (shoe_side_4 > 0) {
-                var side_sub = (col_height - 2 * temp_cover[1]) / (shoe_side_2 + 1);
+                var side_sub = (col_height - 2 * temp_cover[1]) / (shoe_side_4 + 1);
                 var side_add = temp_cover[1];
                 for (var j = 0; j < shoe_side_4; j++) {
                     side_add += side_sub;
@@ -338,6 +421,8 @@ CS_LAYOUT_JSX = (function () {
                         borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
                     });
                     Layers_board.create('circle', [[-0.5 * col_width + temp_cover[1] + temp_center[0], 0.5 * col_height - side_add + temp_center[1]], 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                    updated_shoe_coord.push(temp_coord);
+                    updated_bolt_coord.push([-0.5 * col_width + temp_cover[1] + temp_center[0], 0.5 * col_height - side_add + temp_center[1]]);
                 };
             };
             
@@ -476,9 +561,12 @@ CS_LAYOUT_JSX = (function () {
 						fillOpacity: 0.5,
 						vertices: { visible: false },
 						borders: { strokeColor: "black", highlight: false, strokeWidth: 2 },
-					});
-					Layers_board.create('circle', [rotate(0, 0, 0, 0.5 * col_diam - temp_cover[1], angle_add), 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
-					angle_add += angle_sub;
+                    });
+                    var bolt_center = rotate(0, 0, 0, 0.5 * col_diam - temp_cover[1], angle_add);
+                    Layers_board.create('circle', [bolt_center, 0.5 * temp_D], { strokeColor: 'black', fillColor: 'white', fixed: true, highlight: false });
+                    angle_add += angle_sub;
+                    updated_shoe_coord.push(temp_coord);
+                    updated_bolt_coord.push(bolt_center);
 				};
 			};
 			
@@ -509,14 +597,15 @@ CS_LAYOUT_JSX = (function () {
                     angle += sub_angle;
                 };
             };
-
-
         };
+
+        CS_THREE.initThreeView(updated_shoe_coord, updated_bolt_coord)
     };
 
 
     return {
-        initRebarDraw: initRebarDraw
+        initRebarDraw: initRebarDraw,
+        shoe_coord: shoe_coord,
     };
 
 

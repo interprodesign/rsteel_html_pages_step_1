@@ -1,8 +1,8 @@
 CS_THREE = (function () {
 
-    var initThreeView = function () {
-
-        var mesh, renderer, scene, camera, controls;
+    var mesh, renderer, scene, camera, controls;
+    
+    var initThreeView = function (updated_shoe_coord, updated_bolt_coord) {
 
         jQuery("#cs_column_3d_view").empty();
         var sec_type = jQuery("#cs_sect_type").val();
@@ -12,15 +12,15 @@ CS_THREE = (function () {
         init(sec_type);
         animate();
 
-        function init(sec_type) {
+        function init(sec_type) {   
 
             if (sec_type == 'rect') {
-                var col_width = parseFloat(jQuery("#cs_rect_b").val());
-                var col_height = parseFloat(jQuery("#cs_rect_h").val());
+                var col_width = 1.01 * parseFloat(jQuery("#cs_rect_b").val());
+                var col_height = 1.01 * parseFloat(jQuery("#cs_rect_h").val());
             }
             else if (sec_type == 'round') {
-                var col_width = parseFloat(jQuery("#cs_diam_D").val());
-                var col_height = parseFloat(jQuery("#cs_diam_D").val());
+                var col_width = 1.02 * parseFloat(jQuery("#cs_diam_D").val());
+                var col_height = 1.02 * parseFloat(jQuery("#cs_diam_D").val());
             };
 
             var grt_width = parseFloat(jQuery("#cs_grouting_bg").val());
@@ -52,7 +52,7 @@ CS_THREE = (function () {
             camera.add(light);
 
             // axes
-            scene.add(new THREE.AxisHelper(500));
+            // scene.add(new THREE.AxisHelper(500));
 
 
 
@@ -60,11 +60,11 @@ CS_THREE = (function () {
             // Draw Geometry ----------------------------------------------------------------------------------------------------------
 
             // Column geometry
-            if (sec_type == 'rect') var column_geom = new THREE.BoxGeometry( col_width, 800, col_height );
-            else if (sec_type == 'round') var column_geom = new THREE.CylinderGeometry( 0.5*col_width, 0.5*col_height, 800, 20);
+            if (sec_type == 'rect') var geometry = new THREE.BoxGeometry( col_width, 800, col_height );
+            else if (sec_type == 'round') var geometry = new THREE.CylinderGeometry( 0.5 * col_width, 0.5 * col_height, 800, 20);
 
             var mesh_1 = new THREE.Mesh ( 
-                column_geom, 
+                geometry, 
                 new THREE.MeshPhongMaterial( {
                     color: 0xffffff, 
                     transparent: true,
@@ -72,7 +72,7 @@ CS_THREE = (function () {
                 }) 
             );
             var mesh_2 = new THREE.Mesh( 
-                column_geom, 
+                geometry, 
                 new THREE.MeshPhongMaterial( {
                     color: 0xffffff, 
                     transparent: false,
@@ -87,11 +87,11 @@ CS_THREE = (function () {
 
 
             // Grouting
-            if (sec_type == 'rect') column_geom = new THREE.BoxGeometry(2 * grt_width + col_width, grt_height, 2 * grt_width + col_height );
-            else if (sec_type == "round") column_geom = new THREE.CylinderGeometry(2 * grt_width + 0.5 * col_width, 2 * grt_width + 0.5*col_height, grt_height, 20 );
+            if (sec_type == 'rect') geometry = new THREE.BoxGeometry(2 * grt_width + col_width, grt_height, 2 * grt_width + col_height );
+            else if (sec_type == "round") geometry = new THREE.CylinderGeometry(2 * grt_width + 0.5 * col_width, 2 * grt_width + 0.5*col_height, grt_height, 20 );
 
             mesh_1 = new THREE.Mesh ( 
-                column_geom, 
+                geometry, 
                 new THREE.MeshPhongMaterial( {
                     color: 0x999966,
                     transparent: true,
@@ -99,7 +99,7 @@ CS_THREE = (function () {
                 }) 
             );
             mesh_2 = new THREE.Mesh( 
-                column_geom, 
+                geometry, 
                 new THREE.MeshPhongMaterial( {
                     color: 0x999966, 
                     transparent: false,
@@ -113,9 +113,9 @@ CS_THREE = (function () {
 
 
             // Base plate
-            column_geom = new THREE.BoxGeometry(2 * (grt_width + col_width), base_height, 2 * (grt_width + col_height) );
+            geometry = new THREE.BoxGeometry(2 * (grt_width + col_width), base_height, 2 * (grt_width + col_height) );
             mesh_1 = new THREE.Mesh ( 
-                column_geom, 
+                geometry, 
                 new THREE.MeshPhongMaterial( {
                     color: 0xcccccc,
                     transparent: true,
@@ -123,7 +123,7 @@ CS_THREE = (function () {
                 }) 
             );
             mesh_2 = new THREE.Mesh( 
-                column_geom, 
+                geometry, 
                 new THREE.MeshPhongMaterial( {
                     color: 0xcccccc, 
                     transparent: false,
@@ -135,49 +135,69 @@ CS_THREE = (function () {
             mesh_1.position.set(0, - grt_height - 0.5 * base_height + 3, 0 );
             mesh_2.position.set(0, - grt_height - 0.5 * base_height + 3, 0 );
 
+  
+            // Draw Shoes ------------------------------------------------------------------------------------------------
 
-            // // Draw bolt axes
-            // geometry = new THREE.Geometry();
-            // geometry.vertices.push(new THREE.Vector3(100,0,0));
-            // geometry.vertices.push(new THREE.Vector3(100,1000,0));
+            var shoe_type = jQuery("#cs_shoe_type").val();
+            var bolt_dim = jQuery("#cs_bolt_dim").val();
+            var bolt_type = jQuery("#cs_bolt_type").val();
 
+            var shoe_data = CS_LAYOUT_JSX.shoe_coord[shoe_type][bolt_dim];
+            var shoe_coord = updated_shoe_coord;
+            var bolt_coord = updated_bolt_coord;
 
-            // var material = new THREE.LineDashedMaterial({ color: 0x000000, dashSize: 100, gapSize: 30, linewidth: 10 });
+            if (shoe_coord.length > 0){
+                for (var shoe_arr = 0; shoe_arr < shoe_coord.length; shoe_arr++){
+                    var temp = [];
+                    for (var shoe in shoe_coord[shoe_arr]){
+                        temp.push(new THREE.Vector2(shoe_coord[shoe_arr][shoe][0], shoe_coord[shoe_arr][shoe][1]))    
+                    };
 
-            // var Line = new THREE.LineSegments(geometry, material);
-            // Line.computeLineDistances()
-            // scene.add(Line);
+                    // Shoe
+                    geometry = new THREE.ExtrudeGeometry(new THREE.Shape(temp), {
+                        bevelEnabled: false,
+                        steps: 1,
+                        amount: -shoe_data.t
+                    });
+                    var mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({
+                        color: 0x3399ff,
+                        transparent: false,
+                        side: THREE.DoubleSide
+                    }));
+                    mesh.rotation.x = Math.PI / 2
+                    // mesh.rotation.z = Math.PI / 2
+                    // mesh1.position.set(0, 0, 0);
+                    scene.add(mesh);
 
+                    // Bolt
+                    geometry = new THREE.CylinderGeometry(0.5 * shoe_data.Da, 0.5 * shoe_data.Da, shoe_data.Dt, 20);
+                    mesh = new THREE.Mesh(geometry,new THREE.MeshPhongMaterial({color: 0x0088cc,}));
+                    scene.add(mesh);
+                    mesh.position.set(bolt_coord[shoe_arr][0], shoe_data.t + 0.5 * shoe_data.Dt, bolt_coord[shoe_arr][1],10);
 
-            
-            
-            // Material for mesh
-            var material = new THREE.MeshPhongMaterial({color: 'red', transparent: false, side: THREE.DoubleSide });
-            // Depth to extrude
-            var depth = -100;
-            // Shape to extrude
-            var shape = new THREE.Shape([
-                new THREE.Vector2(23, -60),
-                new THREE.Vector2(-88, -60),
-                new THREE.Vector2(-88, 88),
-                new THREE.Vector2(60, 88),
-                new THREE.Vector2(60, -23)
-            ]);
-            var extrudeSettings1 = {
-                bevelEnabled: false,
-                steps: 1,
-                amount: depth
+                    // Top Nut
+                    geometry = new THREE.CylinderGeometry(0.5 * shoe_data.B, 0.5 * shoe_data.B, shoe_data.H, 6);
+                    mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({ color: 0x0088cc, }));
+                    scene.add(mesh);
+                    mesh.position.set(bolt_coord[shoe_arr][0], shoe_data.t + 0.5 * shoe_data.Dt + 0.5 * shoe_data.H, bolt_coord[shoe_arr][1], 10);
+
+                    // Anchor
+                    if (["RPP-P", "RPP-L"].indexOf(bolt_type) != -1 ){
+                        geometry = new THREE.CylinderGeometry(0.5 * shoe_data.Db, 0.5 * shoe_data.Db, 20, 10);
+                        mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({ color: 0x0088cc, }));
+                        scene.add(mesh);
+                        mesh.position.set(bolt_coord[shoe_arr][0], shoe_data.t + 0.5 * shoe_data.Dt + 0.5 * shoe_data.H + 10, bolt_coord[shoe_arr][1], 10);  
+                    };
+
+                    // Anchor Axis
+                    geometry = new THREE.Geometry();
+                    geometry.vertices.push(new THREE.Vector3(bolt_coord[shoe_arr][0], -400, bolt_coord[shoe_arr][1]));
+                    geometry.vertices.push(new THREE.Vector3(bolt_coord[shoe_arr][0], 400, bolt_coord[shoe_arr][1]));
+                    var Line = new THREE.LineSegments(geometry, new THREE.LineDashedMaterial({ color: 0x000000, dashSize: 100, gapSize: 30, linewidth: 10 }));
+                    Line.computeLineDistances()
+                    scene.add(Line);
+                };
             };
-            var geometry1 = new THREE.ExtrudeGeometry(shape, extrudeSettings1);
-            var mesh1 = new THREE.Mesh(geometry1, material);
-            mesh1.rotation.x = Math.PI / 2
-            mesh1.rotation.z = Math.PI / 2
-            // mesh1.position.set(0, 0, 0);
-            scene.add(mesh1);
-
-            
-
-
         };
 
 
@@ -189,7 +209,7 @@ CS_THREE = (function () {
     };
 
     return {
-        initThreeView: initThreeView,
+        initThreeView: initThreeView,   
     };
 
 })();

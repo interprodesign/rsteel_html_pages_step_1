@@ -69,62 +69,63 @@ CS_LAYOUT = (function () {
             if (sec_type == 'rect'){
                 // Refresh view ------------------------------------------------------------------------------------
                 // RECT
-                jQuery("#cs_rect_h").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
-                jQuery("#cs_rect_b").change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
-                jQuery("#cs_rect_num_1_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_num_2_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_num_3_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_num_4_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_num_1_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_num_2_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_num_3_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_num_4_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_diam_1_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_diam_2_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_diam_3_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_diam_4_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_diam_1_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_diam_2_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_diam_3_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_diam_4_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_start_1_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_start_2_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_start_3_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_start_4_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_end_1_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_end_2_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_end_3_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_end_4_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_start_1_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_start_2_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_start_3_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_start_4_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_end_1_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_end_2_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_end_3_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_end_4_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_cover_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_rect_cover_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_shoe_s1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_shoe_s2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_shoe_s3").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_shoe_s4").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_corner_shoe").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_h").on('change', function () { CS_LAYOUT_JSX.initRebarDraw() });
+                jQuery("#cs_rect_b").on('change', function () { CS_LAYOUT_JSX.initRebarDraw() });
+                jQuery("#cs_rect_num_1_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_num_2_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_num_3_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_num_4_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_num_1_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_num_2_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_num_3_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_num_4_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_diam_1_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_diam_2_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_diam_3_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_diam_4_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_diam_1_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_diam_2_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_diam_3_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_diam_4_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_start_1_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_start_2_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_start_3_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_start_4_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_end_1_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_end_2_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_end_3_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_end_4_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_start_1_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_start_2_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_start_3_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_start_4_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_end_1_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_end_2_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_end_3_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_end_4_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_cover_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_rect_cover_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_shoe_s1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_shoe_s2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_shoe_s3").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_shoe_s4").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_corner_shoe").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
             }
             else if (sec_type == 'round'){
                 // CIRCLE
-                jQuery("#cs_diam_D").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
-                jQuery("#cs_round_cover_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_round_cover_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_round_reb_num_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_round_reb_num_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_round_reb_diam_1").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-                jQuery("#cs_round_reb_diam_2").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
-				jQuery("#cs_round_shoe_num").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_diam_D").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_round_cover_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_round_cover_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_round_reb_num_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_round_reb_num_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_round_reb_diam_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_round_reb_diam_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+                jQuery("#cs_round_shoe_num").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
             };
-            jQuery("#cs_grouting_bg").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
-            jQuery("#cs_grouting_tg").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
-            jQuery("#cs_base_tp").unbind().change(function () { CS_LAYOUT_JSX.initRebarDraw(); CS_THREE.initThreeView(); });
+            jQuery("#cs_bolt_dim").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+            jQuery("#cs_grouting_bg").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+            jQuery("#cs_grouting_tg").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
+            jQuery("#cs_base_tp").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
         };
 
         
@@ -439,7 +440,6 @@ jQuery(document).ready(function () {
         CS_LAYOUT.initSectioninputs(jQuery(this).val());
         CS_LAYOUT.initSecDefaultData(jQuery(this).val());
         CS_LAYOUT_JSX.initRebarDraw();
-        CS_THREE.initThreeView();
     });
 
     // Init column section deck  
@@ -458,20 +458,15 @@ jQuery(document).ready(function () {
     CS_LAYOUT.initRebarDiams();
     CS_LAYOUT.initSecDefaultData(init_sec);
     CS_LAYOUT_JSX.initRebarDraw();
-    CS_THREE.initThreeView();
-
 
 
     jQuery("#cs_refresh_view").unbind().click(function(){
-        CS_THREE.initThreeView();
         CS_LAYOUT_JSX.initRebarDraw();
     });
 
-
-    window.onresize = function(event) {
-        CS_LAYOUT_JSX.initRebarDraw();
-        CS_THREE.initThreeView();
-    };
+    // window.onresize = function(event) {
+    //     CS_LAYOUT_JSX.initRebarDraw();
+    // };
 
 
 });
