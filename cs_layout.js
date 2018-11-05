@@ -67,8 +67,6 @@ CS_LAYOUT = (function () {
         
         function initChangeEvents(sec_type){
             if (sec_type == 'rect'){
-                // Refresh view ------------------------------------------------------------------------------------
-                // RECT
                 jQuery("#cs_rect_h").on('change', function () { CS_LAYOUT_JSX.initRebarDraw() });
                 jQuery("#cs_rect_b").on('change', function () { CS_LAYOUT_JSX.initRebarDraw() });
                 jQuery("#cs_rect_num_1_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
@@ -112,7 +110,6 @@ CS_LAYOUT = (function () {
                 jQuery("#cs_corner_shoe").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
             }
             else if (sec_type == 'round'){
-                // CIRCLE
                 jQuery("#cs_diam_D").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_round_cover_1").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
                 jQuery("#cs_round_cover_2").on('change', function () { CS_LAYOUT_JSX.initRebarDraw(); });
@@ -195,6 +192,39 @@ CS_LAYOUT = (function () {
                     </div>\
                     </div>');
             jQuery("#add_br").empty();
+
+            // Shoe parameters --------------------------------------------------------------------------------------------------------------
+            jQuery("#cs_shoe_image").empty();
+            jQuery("#cs_shoe_image").append('<img src="cs_rect_shoes_pos.png" style="width:125px">');
+            jQuery("#cs_rect_shoes_data_1").empty();
+            jQuery("#cs_rect_shoes_data_1").append('\
+                <div>\
+                <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label>\
+                <input id="cs_shoe_s1" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">\
+                </div>\
+                <div>\
+                <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label>\
+                <input id="cs_shoe_s2" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">\
+                </div>\
+                <div>\
+                <input id="cs_corner_shoe" class="w3-check" style="margin-top:30px" type="checkbox" checked="checked">\
+                <label>Corner Shoes</label>\
+                </div>\
+            ');
+            jQuery("#cs_rect_shoes_data_2").empty();
+            jQuery("#cs_rect_shoes_data_2").append('\
+                <div>\
+                <label > <i class="fa fa-toggle-down"></i> Side 3(num)</label>\
+                <input id="cs_shoe_s3" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">\
+                </div>\
+                <div>\
+                <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label>\
+                <input id="cs_shoe_s4" class="w3-input w3-border" type="number" value="1" name="Adults" min="0" max="5">\
+                </div>\
+            ');
+
+
+            // Reinforcement Dialog ---------------------------------------------------------------------------------------------------------
             jQuery("#cs_sec_rebar_inputs").empty();
             jQuery("#cs_sec_rebar_inputs").append('\
                         <div id="layerTabClick" class="w3-row w3-third">\
@@ -206,112 +236,104 @@ CS_LAYOUT = (function () {
                         </a>\
                         </div>');
 
-            var rebar_rec_img = ["cs_rect_reb_layer_1.png", "cs_rect_reb_layer_2.png"]
-
             for (i = 1; i <= 2; i++) {
                 jQuery("#cs_sec_rebar_inputs").append('\
-                        <div id =\"layer_'+ i + '\" class= \"w3-container city\" style = \"display:' + ((i == 1) ? "block" : "none") + '\">\
-                        <div class="w3-row w3-margin-top">\
-                        <div class="w3-col" style="width:22%;">\
-                        <div class="w3-bar-block" style="padding-left:15px">\
-                        <img src="'+ rebar_rec_img[i - 1] + '" style="width:150px">\
-                        </div>\
-                        </div>\
-                        <div class="w3-col" style="width:16%">\
+                        <div id =\"layer_'+ i + '\" class= \"w3-container w3-margin-top city\" style = \"display:' + ((i == 1) ? "block" : "none") + '\">\
+                        <!-- ROW TOP -->\
+                        <div class= "w3-row w3-margin-top">\
+                        <!--Column 1 -->\
+                        <div class="w3-col w3-center" style="width:20%">\
                         <div class="w3-bar-block">\
-                        <div>\
+                        <img src="cs_rect_reb_layer_'+ i + '_1.png" style="width:145px">\
+                        </div>\
+                        </div>\
+                        <!-- Column 2 -->\
+                        <div class="w3-col w3-margin-left" style="width:20%">\
+                        <div class="w3-bar-block">\
                         <label><i class="fa fa-toggle-up"></i> Side 1 (num)</label>\
-                        <input id="'+ "cs_rect_num_1_" + i + '" class="w3-input w3-border" type="number" value="0" name="Adults" min="0"\
-                        max="5">\
+                        <input id="cs_rebar_side_1_'+i+'" class="w3-input w3-border" type="number" value="0" name="Adults" min="0" max="5">\
                         </div>\
                         <div>\
                         <label><i class="fa fa-toggle-right w3-margin-top"></i> Side 2 (num)</label>\
-                        <input id="'+ "cs_rect_num_2_" + i + '" class="w3-input w3-border" type="number" value="0" name="Adults" min="0"\
-                        max="5">\
+                        <input id="cs_rebar_side_2_'+ i +'" class="w3-input w3-border" type="number" value="0" name="Adults" min="0" max="5">\
                         </div>\
                         <div>\
                         <label><i class="fa fa-toggle-down w3-margin-top"></i> Side 3 (num)</label>\
-                        <input id="'+ "cs_rect_num_3_" + i + '" class="w3-input w3-border" type="number" value="0" name="Adults" min="0"\
-                        max="5">\
+                        <input id="cs_rebar_side_3_'+ i +'" class="w3-input w3-border" type="number" value="0" name="Adults" min="0" max="5">\
                         </div>\
                         <div>\
                         <label><i class="fa fa-toggle-left w3-margin-top"></i> Side 4 (num)</label>\
-                        <input id="'+ "cs_rect_num_4_" + i + '" class="w3-input w3-border" type="number" value="0" name="Adults" min="0"\
-                        max="5">\
+                        <input id="cs_rebar_side_4_'+ i +'" class="w3-input w3-border" type="number" value="0" name="Adults" min="0" max="5">\
                         </div>\
                         </div>\
-                        </div>\
-                        <div class="w3-col w3-margin-left" style="width:16%">\
-                        <div class="w3-bar-block">\
+                        <!-- Column 3 -->\
+                        <div class="w3-col w3-margin-left" style="width:20%">\
                         <label><i class="fa fa-circle"></i> Rebar Diam.</label>\
-                        <select type="diams" id="'+ "cs_rect_diam_1_" + i + '" class="w3-select w3-border" name="option">\
-                        </select>\
+                        <select id="cs_side_diam_1_'+ i +'" type="diams" class="w3-select w3-border" name="option"></select>\
                         <label><i class="fa fa-circle" style="margin-top: 18px"></i> Rebar Diam.</label>\
-                        <select type="diams" id="'+ "cs_rect_diam_2_" + i + '" class="w3-select w3-border" name="option">\
-                        </select>\
+                        <select id="cs_side_diam_2_'+ i +'" type="diams" class="w3-select w3-border" name="option"> </select>\
                         <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label>\
-                        <select type="diams" id="'+ "cs_rect_diam_3_" + i + '" class="w3-select w3-border" name="option">\
-                        </select>\
+                        <select id="cs_side_diam_3_'+ i +'" type="diams" class="w3-select w3-border" name="option"> </select>\
                         <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label>\
-                        <select type="diams" id="'+ "cs_rect_diam_4_" + i + '" class="w3-select w3-border" name="option">\
-                        </select>\
+                        <select id="cs_side_diam_4_'+ i +'" type="diams" class="w3-select w3-border" name="option"></select>\
                         </div>\
-                        </div>\
-                        <div class="w3-col w3-margin-left" style="width:8%">\
-                        <div class="w3-bar-block">\
-                        <div style="margin-top: 25px">\
-                        <input id="'+ "cs_rect_start_1_" + i + '" class="w3-check" type="checkbox" ' + ((i == 1) ? 'checked="checked"' : '') + '>\
-                        <label>Start</label></p>\
-                        </div>\
-                        <div style="margin-top: 45px">\
-                        <input id="'+ "cs_rect_start_2_" + i + '" class="w3-check" type="checkbox" ' + ((i == 1) ? 'checked="checked"' : '') + '>\
-                        <label>Start</label></p>\
-                        </div>\
-                        <div style="margin-top: 45px">\
-                        <input id="'+ "cs_rect_start_3_" + i + '" class="w3-check" type="checkbox" ' + ((i == 1) ? 'checked="checked"' : '') + '>\
-                        <label>Start</label></p>\
-                        </div>\
-                        <div style="margin-top: 45px">\
-                        <input id="'+ "cs_rect_start_4_" + i + '" class="w3-check" type="checkbox" ' + ((i == 1) ? 'checked="checked"' : '') + '>\
-                        <label>Start</label></p>\
-                        </div>\
-                        </div>\
-                        </div>\
-                        <div class="w3-col" style="width:8%">\
-                        <div class="w3-bar-block">\
-                        <div style="margin-top: 25px">\
-                        <input id="'+ "cs_rect_end_1_" + i + '" class="w3-check" type="checkbox">\
-                        <label>End</label></p>\
-                        </div>\
-                        <div style="margin-top: 45px">\
-                        <input id="'+ "cs_rect_end_2_" + i + '" class="w3-check" type="checkbox">\
-                        <label>End</label></p>\
-                        </div>\
-                        <div style="margin-top: 45px">\
-                        <input id="'+ "cs_rect_end_3_" + i + '" class="w3-check" type="checkbox">\
-                        <label>End</label></p>\
-                        </div>\
-                        <div style="margin-top: 45px">\
-                        <input id="'+ "cs_rect_end_4_" + i + '" class="w3-check" type="checkbox">\
-                        <label>End</label></p>\
-                        </div>\
-                        </div>\
-                        </div>\
-                        <div class="w3-col" style="width:15%">\
+                        <!-- Column 4 -->\
+                        <div class="w3-col w3-margin-left" style="width:20%">\
                         <label><i class="fa fa-window-maximize"></i> Cover (mm)</label>\
-                        <input id="'+ "cs_rect_cover_" + i + '" class="w3-input w3-border" type="text" value="0">\
+                        <input class="w3-input w3-border" type="text" value="0">\
                         <label><i class="fa fa-chain-broken w3-margin-top"></i> Steel</label>\
-                        <select id="'+ "cs_rect_steel_" + i + '" class="w3-select w3-border" name="option">\
+                        <select class="w3-select w3-border" name="option">\
                         <option value="400">Class A400</option>\
                         <option value="500">Class B500</option>\
                         <option value="600">Class C600</option>\
                         </select>\
                         </div>\
                         </div>\
+                        <!-- ROW BOTTOM -->\
+                        <div class="w3-row w3-margin-top">\
+                        <!-- Column 1 -->\
+                        <div class="w3-col w3-center" style="width:20%">\
+                        <div class="w3-bar-block">\
+                        <img src="cs_rect_reb_layer_'+ i + '_2.png" style="width:165px">\
+                        </div>\
+                        </div>\
+                        <!-- Column 2 -->\
+                        <div class="w3-col w3-margin-left" style="width:20%">\
+                        <div class="w3-bar-block">\
+                        <div style="margin-top:25px">\
+                        <input id="cs_rebar_corner_1_'+ i +'" id="corner_bar_1_" class="w3-check" type="checkbox" checked="checked">\
+                        <label>Corner Bar 1</label>\
+                        </div>\
+                        <div style="margin-top:28px">\
+                        <input id="cs_rebar_corner_2_'+ i +'" class="w3-check w3-margin-top" type="checkbox" checked="checked">\
+                        <label>Corner Bar 2</label>\
+                        </div>\
+                        <div style="margin-top:28px">\
+                        <input id="cs_rebar_corner_3_'+ i +'" class="w3-check w3-margin-top" type="checkbox" checked="checked">\
+                        <label>Corner Bar 3</label>\
+                        </div>\
+                        <div style="margin-top:28px">\
+                        <input id="cs_rebar_corner_4_'+ i +'" class="w3-check w3-margin-top" type="checkbox" checked="checked">\
+                        <label>Corner Bar 4</label>\
+                        </div>\
+                        </div>\
+                        </div>\
+                        <!-- Column 3 -->\
+                        <div class="w3-col w3-margin-left" style="width:20%">\
+                        <label><i class="fa fa-circle"></i> Rebar Diam.</label>\
+                        <select id="cs_corner_diam_1_'+ i +'" type="diams" class="w3-select w3-border" name="option"></select>\
+                        <label><i class="fa fa-circle" style="margin-top: 18px"></i> Rebar Diam.</label>\
+                        <select id="cs_corner_diam_2_'+ i +'" type="diams" class="w3-select w3-border" name="option"> </select>\
+                        <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label>\
+                        <select id="cs_corner_diam_3_'+ i +'" type="diams" class="w3-select w3-border" name="option"> </select>\
+                        <label><i class="fa fa-circle" style="margin-top: 17px"></i> Rebar Diam.</label>\
+                        <select id="cs_corner_diam_4_'+ i +'" type="diams" class="w3-select w3-border" name="option"></select>\
+                        </div>\
+                        </div>\
                         </div>');
             };
             initRebarDiams();
-            initChangeEvents(sec_type)
+            initChangeEvents(sec_type);
         }
         else if (sec_type == "round") {
             jQuery("#cs_sec_image img").attr("src", "cs_select_round.png");
@@ -319,6 +341,7 @@ CS_LAYOUT = (function () {
             jQuery("#cs_section_dims").append('\
                     <label><i class="fa fa-arrows-v w3-margin-top"></i> Diam. D (mm)</label>\
                     <input id = "cs_diam_D" class= "w3-input w3-border" type = "text">');
+            // Column Shoe ---------------------------------------------------------------------------------------------------------
             jQuery("#cs_col_shoes_inputs").empty();
             jQuery("#cs_col_shoes_inputs").append('\
                     <div class="w3-col w3-margin-left" style="width:15%">\
@@ -355,15 +378,28 @@ CS_LAYOUT = (function () {
                     </div>\
                     </div><br>');
             jQuery("#add_br").append("<br>");
+
+            // Shoe parameters --------------------------------------------------------------------------------------------------------------
+            jQuery("#cs_shoe_image").empty();
+            jQuery("#cs_shoe_image").append('<img src="cs_round_grt_num.png" style="width:120px">');
+            jQuery("#cs_rect_shoes_data_1").empty();
+            jQuery("#cs_rect_shoes_data_1").append('\
+                <label><i class="fa fa-life-bouy"></i> Number</label>\
+                <input id = "cs_round_shoe_num" class= "w3-input w3-border" type = "number" value = "4" name = "Adults" min = "0" max = "10">\
+            ');
+            jQuery("#cs_rect_shoes_data_2").empty();
+
+
+            // Rebar Dialog ---------------------------------------------------------------------------------------------------------
             jQuery("#cs_sec_rebar_inputs").empty();
             jQuery("#cs_sec_rebar_inputs").append('\
                     <div class= "w3-row w3-margin-top">\
-                    <div class="w3-col" style="width:15%;margin-left:7px">\
+                    <div class="w3-col w3-center" style="width:20%;">\
                     <div class="w3-bar-block">\
                     <img src="cs_round_rebar.png" style="width:125px">\
                     </div>\
                     </div>\
-                    <div class="w3-col" style="width:16%">\
+                    <div class="w3-col w3-margin-left" style="width:20%">\
                     <div class="w3-bar-block">\
                     <div>\
                     <label><i class="fa fa-circle-o"></i> Cover L1 (mm)</label>\
@@ -373,9 +409,15 @@ CS_LAYOUT = (function () {
                     <label><i class="fa fa-circle-o w3-margin-top"></i> Cover L2 (mm)</label>\
                     <input id="cs_round_cover_2" class="w3-input w3-border" type="text" value="0">\
                     </div>\
+                    <label><i class="fa fa-chain-broken w3-margin-top"></i> Steel</label>\
+                    <select class="w3-select w3-border" name="option">\
+                    <option value="400">Class A400</option>\
+                    <option value="500">Class B500</option>\
+                    <option value="600">Class C600</option>\
+                    </select>\
                     </div>\
                     </div>\
-                    <div class="w3-col w3-margin-left" style="width:16%">\
+                    <div class="w3-col w3-margin-left" style="width:20%">\
                     <div class="w3-bar-block">\
                     <div>\
                     <label><i class="fa fa-dot-circle-o"></i> Layer 1 (num)</label>\
@@ -387,7 +429,7 @@ CS_LAYOUT = (function () {
                     </div>\
                     </div>\
                     </div>\
-                    <div class="w3-col w3-margin-left" style="width:16%">\
+                    <div class="w3-col w3-margin-left" style="width:20%">\
                     <div class="w3-bar-block">\
                     <label><i class="fa fa-circle"></i> Rebar Diam.</label>\
                     <select id="cs_round_reb_diam_1" type="diams" class="w3-select w3-border" name="option">\
@@ -464,9 +506,9 @@ jQuery(document).ready(function () {
         CS_LAYOUT_JSX.initRebarDraw();
     });
 
-    // window.onresize = function(event) {
-    //     CS_LAYOUT_JSX.initRebarDraw();
-    // };
+    window.onresize = function(event) {
+        CS_LAYOUT_JSX.initRebarDraw();
+    };
 
 
 });

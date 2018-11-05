@@ -180,7 +180,7 @@ CS_LAYOUT_JSX = (function () {
     };
 
     var updated_shoe_coord = [];
-    var updated_bolt_coord = []
+    var updated_bolt_coord = [];
 
     
     var initRebarDraw = function () {
@@ -286,7 +286,7 @@ CS_LAYOUT_JSX = (function () {
             var shoe_side_3 = parseInt(jQuery("#cs_shoe_s3").val());
             var shoe_side_4 = parseInt(jQuery("#cs_shoe_s4").val());
 
-            // Corver shoes
+            // Cover shoes
             if (document.getElementById("cs_corner_shoe").checked) {
 
                 var angle_arr = [90 ,0, -90, -180];

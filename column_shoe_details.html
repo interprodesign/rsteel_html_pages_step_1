@@ -23,38 +23,27 @@
 <body class="w3-light-grey">
 
     <!-- Sidebar/menu -->
-    <nav class="w3-sidebar w3-dark-grey w3-bar-block w3-padding w3-collapse w3-top" style="width:250px;font-weight:bold;z-index:3;"
+    <nav class="w3-sidebar w3-black w3-bar-block w3-padding w3-collapse w3-top" style="width:250px;font-weight:bold;z-index:3;"
         id="Sidebar">
-
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft w3-hover-light-grey"
             style="width:100%;font-size:18px">Close Menu</a>
-
         <br>
         <br>
-
         <div>
             <!-- <h3><b>R-STEEL</b></h3>
             Column Show Design -->
-            <img src="column_shoe_logo.png" style="width:200px">
-
+            <img src="logo_white.png" style="width:216px">
         </div>
-
         <br>
-
         <div class=" w3-border-bottom w3-text-grey w3-border-white w3-center"></div>
-
         <!-- <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a> -->
-
         <div class="w3-row-padding w3-center w3-padding-16">
-            <div href="#" class="w3-button w3-circle w3-hover-light-grey w3-xlarge"><i class="fa fa-question-circle-o"></i></div>
-            <div href="#" class="w3-button w3-circle w3-hover-light-grey w3-xlarge "><i class="fa fa-cogs"></i></div>
-            <div href="#" class="w3-button w3-circle w3-hover-light-grey w3-xlarge"><i class="fa fa-arrow-circle-left"></i></div>
+            <div href="#" class="w3-text-light-green w3-button w3-circle w3-hover-light-grey w3-xlarge"><i class="fa fa-question-circle-o"></i></div>
+            <div href="#" class="w3-text-yellow w3-button w3-circle w3-hover-light-grey w3-xlarge "><i class="fa fa-cogs"></i></div>
+            <div href="#" class="w3-text-orange w3-button w3-circle w3-hover-light-grey w3-xlarge"><i class="fa fa-arrow-circle-left"></i></div>
         </div>
-
         <div class=" w3-border-bottom w3-text-grey w3-border-white w3-center"></div>
-
         <br>
-
         <!-- Left main menu tabs -->
         <div id="cs_main_left_menu" class="w3-bar-block w3-large">
             <a id="cs_main_left_menu_details" href="#" class="w3-bar-item w3-button w3-light-grey w3-hover-light-grey">Details</a>
@@ -68,7 +57,7 @@
 
     <!-- Top menu on small screens -->
     <header class="w3-container w3-top w3-hide-large w3-light-grey w3-xlarge w3-padding">
-        <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+        <a href="javascript:void(0)" class="w3-button w3-light-grey w3-border w3-margin-right" onclick="w3_open()">☰</a>
     </header>
 
     <!-- Overlay effect when opening sidebar on small screens -->
@@ -92,13 +81,11 @@
             <p class="w3-text-dark-grey">The filled data will be reflected in output design report</p>
         </div>
 
-
         <br>
-
-        
+ 
         <div class="w3-row">
             <div class="w3-container">
-                <div class="w3-text-dark-grey w3-container w3-white w3-border-bottom">
+                <div class="w3-text-white w3-container w3-blue">
                     <h4>Project Details</h4>
                 </div>
             </div>
@@ -159,6 +146,21 @@
 
 
     </div>
+
+    <script>
+
+        // Script to open and close sidebar -----------------------------------------------------
+        function w3_open() {
+            document.getElementById("Sidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        };
+        function w3_close() {
+            document.getElementById("Sidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        };
+
+
+    </script>
 
 
     
